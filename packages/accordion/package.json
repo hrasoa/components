@@ -1,0 +1,19 @@
+{
+  "name": "@hrasoa/components-accordion",
+  "version": "0.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "repository": "hrasoa/components",
+  "author": "Haja Rasoahaingo <haja.rasoah@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hrasoa/components/issues"
+  },
+  "homepage": "https://github.com/hrasoa/components#readme",
+  "dependencies": {
+    "@hrasoa/components-utils": "*"
+  },
+  "peerDependencies": {
+    "react": "^16.3.0"
+  }
+}

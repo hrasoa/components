@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion initial 1`] = `
+<dl
+  className={null}
+  onKeyDown={[MockFunction]}
+  role="presentation"
+>
+  <span>
+    accordion items
+  </span>
+</dl>
+`;

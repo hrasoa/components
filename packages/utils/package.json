@@ -1,0 +1,21 @@
+{
+  "name": "@hrasoa/components-utils",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "test": "jest"
+  },
+  "files": [
+    "getDisplayName.js"
+  ],
+  "repository": "hrasoa/components",
+  "author": "Haja Rasoahaingo <haja.rasoah@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hrasoa/components/issues"
+  },
+  "homepage": "https://github.com/hrasoa/components#readme",
+  "peerDependencies": {
+    "react": "^16.3.0"
+  }
+}

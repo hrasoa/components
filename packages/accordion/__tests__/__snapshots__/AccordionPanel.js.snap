@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccordionPanel initial 1`] = `
+<dd
+  arial-labelledby={undefined}
+  className={null}
+  hidden={true}
+  id="panel-1"
+  role={null}
+>
+  Panel 1
+</dd>
+`;
+
+exports[`AccordionPanel is expanded 1`] = `
+<dd
+  arial-labelledby="header-1"
+  className="accordion__panel"
+  hidden={false}
+  id="panel-1"
+  role="region"
+>
+  Panel 1
+</dd>
+`;

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccordionHeader initial 1`] = `
+<dt
+  aria-level="3"
+  className={null}
+  role="heading"
+>
+  <button
+    aria-controls="panel-1"
+    aria-disabled={false}
+    aria-expanded={false}
+    id="header-1"
+    onClick={[Function]}
+    type="button"
+  >
+    Header 1
+  </button>
+</dt>
+`;
+
+exports[`AccordionHeader is expanded and disabled 1`] = `
+<dt
+  aria-level="2"
+  className="accordion__header"
+  role="heading"
+>
+  <button
+    aria-controls="panel-1"
+    aria-disabled={true}
+    aria-expanded={true}
+    id="header-1"
+    onClick={[Function]}
+    type="button"
+  >
+    Header 1
+  </button>
+</dt>
+`;
