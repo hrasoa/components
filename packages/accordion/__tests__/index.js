@@ -56,7 +56,3 @@ AccordionTest.defaultProps = {
 };
 
 export default AccordionTest;
-
-test('true', () => {
-  expect(true).toBeTruthy();
-});

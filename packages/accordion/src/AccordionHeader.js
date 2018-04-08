@@ -38,12 +38,12 @@ class AccordionHeader extends React.Component<Props> {
   render() {
     return (
       <dt
-        className={this.props.className}
         aria-level={this.props['aria-level']}
         role="heading"
       >
         <button
           id={this.props.id}
+          className={this.props.className}
           aria-controls={this.props.controls}
           aria-disabled={this.props.isDisabled}
           aria-expanded={this.props.isExpanded}

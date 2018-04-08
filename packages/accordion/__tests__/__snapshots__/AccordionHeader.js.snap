@@ -3,13 +3,13 @@
 exports[`AccordionHeader initial 1`] = `
 <dt
   aria-level="3"
-  className={null}
   role="heading"
 >
   <button
     aria-controls="panel-1"
     aria-disabled={false}
     aria-expanded={false}
+    className={null}
     id="header-1"
     onClick={[Function]}
     type="button"
@@ -22,13 +22,13 @@ exports[`AccordionHeader initial 1`] = `
 exports[`AccordionHeader is expanded and disabled 1`] = `
 <dt
   aria-level="2"
-  className="accordion__header"
   role="heading"
 >
   <button
     aria-controls="panel-1"
     aria-disabled={true}
     aria-expanded={true}
+    className="accordion__header"
     id="header-1"
     onClick={[Function]}
     type="button"
