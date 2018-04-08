@@ -5,7 +5,6 @@ import BaseAccordionHeader from './AccordionHeader';
 import BaseAccordionPanel from './AccordionPanel';
 import withProvider from './withProvider';
 import withConsumer from './withConsumer';
-import AccordionTest from '../__tests__';
 
 const { Provider, Consumer } = React.createContext();
 
@@ -22,5 +21,4 @@ export {
   Accordion,
   AccordionHeader,
   AccordionPanel,
-  AccordionTest,
 };
