@@ -4,9 +4,9 @@ import * as React from 'react';
 type Props = {
   children: string | React.Node,
   controls: string,
-  id: string,
   togglePanel: (panelId: string) => void,
-  className?: ?string,
+  id?: string,
+  className?: string,
   'aria-level'?: string,
   isDisabled?: boolean,
   isExpanded?: boolean,
@@ -15,10 +15,7 @@ type Props = {
 
 class AccordionHeader extends React.Component<Props> {
   static defaultProps = {
-    className: null,
     'aria-level': '3',
-    isDisabled: false,
-    isExpanded: false,
   }
 
   componentDidUpdate() {

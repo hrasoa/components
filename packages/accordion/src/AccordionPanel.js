@@ -5,19 +5,13 @@ type Props = {
   children: string | React.Node,
   id: string,
   addPanel: (id: string, ref: any) => void,
-  className?: ?string,
+  className?: string,
   'aria-labelledby'?: string,
-  role?: ?string,
+  role?: string,
   isExpanded?: boolean,
 };
 
 class AccordionPanel extends React.Component<Props> {
-  static defaultProps = {
-    className: null,
-    role: null,
-    isExpanded: false,
-  }
-
   constructor(props: Props) {
     super(props);
     this.props.addPanel(this.props.id, this.ref);

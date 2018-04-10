@@ -2,17 +2,6 @@
 import * as React from 'react';
 import getDisplayName from '@hrasoa/components-utils/getDisplayName';
 
-type Props = {
-  children: string | React.Node,
-  id: string,
-  controls: string,
-  className?: ?string,
-  'aria-level'?: string,
-  'aria-labelledby'?: string,
-  role?: ?string,
-  isExpanded?: boolean,
-};
-
 type ProviderValue = {
   isDisabled: (id: string) => boolean,
   isExpanded: (id: string) => boolean,
@@ -22,17 +11,21 @@ type ProviderValue = {
 };
 
 type MappedProps = {
-  togglePanel: (id: string) => void,
-  addPanel: (id: string) => void,
+  togglePanel?: (id: string) => void,
+  addPanel?: (id: string) => void,
   isDisabled?: boolean,
   isExpanded?: boolean,
   isFocused?: boolean,
 };
 
+type PropsInput = any;
+
+type PropsOutput = $Shape<PropsInput & MappedProps>;
+
 function withConsumer(
   Consumer: React.ComponentType<any>,
-  mapValueToProps?: (value: ProviderValue, props: Props) => $Shape<MappedProps>,
-): (React.ComponentType<$Shape<Props & MappedProps>>) => React.ComponentType<$Shape<Props>> {
+  mapValueToProps?: (value: ProviderValue, props: PropsInput) => PropsOutput,
+): (React.ComponentType<PropsOutput>) => React.ComponentType<PropsInput> {
   return (WrappedComponent) => {
     function WithConsumer(props) {
       const mappedProps = mapValueToProps || defaultMapValueToProps;

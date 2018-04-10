@@ -20,7 +20,6 @@
     "global-require": "off",
     "no-use-before-define": ["error", { "functions": false }],
     "import/no-extraneous-dependencies": "off",
-    "react/default-props-match-prop-types": ["error", { "allowRequiredDefaults": true }],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
   }
 }
