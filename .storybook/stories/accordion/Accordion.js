@@ -32,8 +32,8 @@ const getItems = (expandedIds, renderHeader) => {
         isExpanded={expandedIds && expandedIds.indexOf(i) >= 0}
       >
         <ul>
-          <li><label htmlFor={`input-${i}-0`}>Label 0 <input id={`input-${i}-0`} /></label></li>
-          <li><label htmlFor={`input-${i}-1`}>Label 1 <input id={`input-${i}-1`} /></label></li>
+          <li><label htmlFor={`input-${i}-0`}>Label <input id={`input-${i}-0`} /></label></li>
+          <li><label htmlFor={`input-${i}-1`}>Label <input id={`input-${i}-1`} /></label></li>
         </ul>
       </AccordionPanel>,
     ];
