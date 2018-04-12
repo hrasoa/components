@@ -7,7 +7,7 @@ import {
 } from '../../../packages/accordion';
 
 type Props = {
-  renderHeader: (i: number) => string | React.Node,
+  renderHeader?: (i: number) => string | React.Node,
   className?: string,
   allowTogle?: boolean,
   allowMultiple?: boolean,
@@ -24,7 +24,7 @@ const getItems = (expandedIds, renderHeader) => {
         id={`header-${i}`}
         controls={`panel-${i}`}
       >
-        {renderHeader(i)}
+        {renderHeader && renderHeader(i)}
       </AccordionHeader>,
       <AccordionPanel
         key={`panel-${i}`}
@@ -32,8 +32,8 @@ const getItems = (expandedIds, renderHeader) => {
         isExpanded={expandedIds && expandedIds.indexOf(i) >= 0}
       >
         <ul>
-          <li><input /></li>
-          <li><input /></li>
+          <li><label htmlFor={`input-${i}-0`}>Label 0 <input id={`input-${i}-0`} /></label></li>
+          <li><label htmlFor={`input-${i}-1`}>Label 1 <input id={`input-${i}-1`} /></label></li>
         </ul>
       </AccordionPanel>,
     ];
