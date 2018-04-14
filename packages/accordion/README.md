@@ -40,19 +40,11 @@ Accordion descripiion
 
 Props
 
-**children** (required)
-
-type: string | React.Node
-
 **className** 
 
 type: string
 
 default value: `null`
-
-**handleKeyNavigation** (required)
-
-type: function (e: SyntheticKeyboardEventElement<HTMLElement>) => void
 ### `<AccordionHeader>`
 
 AccordionHeader descripiion

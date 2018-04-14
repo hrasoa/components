@@ -2,7 +2,9 @@
 import * as React from 'react';
 
 type Props = {
+  /** @private */
   children: string | React.Node,
+  /** @private */
   handleKeyNavigation: (e: SyntheticKeyboardEventElement<HTMLElement>) => void,
   className?: ?string,
 };
