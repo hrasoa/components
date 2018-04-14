@@ -4,7 +4,7 @@ import {
   Accordion,
   AccordionHeader,
   AccordionPanel,
-} from '../../../packages/accordion';
+} from '../../../packages/accordion/src';
 
 type Props = {
   renderHeader?: (i: number) => string | React.Node,

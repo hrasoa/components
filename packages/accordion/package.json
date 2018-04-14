@@ -1,5 +1,5 @@
 {
-  "name": "@hrasoa/components-accordion",
+  "name": "@hrasoa/accordion",
   "version": "0.0.0",
   "description": "Accordion",
   "main": "lib/index.js",
