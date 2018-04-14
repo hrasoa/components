@@ -28,7 +28,7 @@ function formatType(type) {
 }
 
 function generateDefaultValue(prop) {
-  return prop.defaultValue ? `* default value: \`${prop.defaultValue.value}\`` : '';
+  return prop.defaultValue ? `default value: \`${prop.defaultValue.value}\`` : '';
 }
 
 function generateProps(props) {

@@ -47,7 +47,7 @@ Component class
 
 type: string
 
-* default value: `null`
+default value: `null`
 
 ### `<AccordionHeader>`
 
@@ -59,7 +59,7 @@ AccordionHeader descripiion
 
 type: string
 
-* default value: `'3'`
+default value: `'3'`
 
 `children` (required)
 
