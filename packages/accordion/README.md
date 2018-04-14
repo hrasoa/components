@@ -1,6 +1,6 @@
 # @hrasoa/accordion
-> Accordion
 
+> Accordion
 
 ## Installation
 

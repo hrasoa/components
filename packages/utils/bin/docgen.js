@@ -11,9 +11,11 @@ const docgenRc = fs.readFileSync(path.resolve(process.cwd(), '.docgenrc'), { enc
 const usage = fs.readFileSync(path.resolve(process.cwd(), 'docs/USAGE.md'), { encoding: 'utf8' });
 const docgenJson = JSON.parse(docgenRc);
 
-md.write(`# ${pkg.name}\n`);
-md.write(`> ${pkg.description}\n\n`);
+md.write(`# ${pkg.name}`);
 md.write(`
+
+> ${pkg.description}
+
 ## Installation
 
 \`\`\`bash
@@ -22,6 +24,7 @@ $ yarn add ${pkg.name}
 \`\`\`
 
 ## General usage
+
 ${usage}
 
 ## Api
