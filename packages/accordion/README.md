@@ -1,15 +1,36 @@
-# @hrasoa/components-accordion
+# @hrasoa/accordion
 > Accordion
 
 
 ## Installation
 
 ```bash
-$ npm install @hrasoa/components-accordion --save
-$ yarn add @hrasoa/components-accordion
+$ npm install @hrasoa/accordion --save
+$ yarn add @hrasoa/accordion
 ```
 
 ## General usage
+```jsx
+import {
+  Accordion,
+  AccordionHeader,
+  AccordionPanel,
+} from '@hrasoa/accordion';
+
+<Accordion>
+  <AccordionHeader
+    controls="panel"
+  >
+    Header
+  </AccordionHeader>
+  <AccordionPanel
+    id="panel"
+  >
+    Panel
+  </AccordionPanel>
+</Accordion>
+```
+
 
 ## Api
 ### `<Accordion>`

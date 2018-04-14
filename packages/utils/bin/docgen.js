@@ -8,6 +8,7 @@ const generateMarkdown = require('../generateMarkdown');
 const md = fs.createWriteStream(path.resolve(process.cwd(), 'README.md'));
 const pkg = require(path.resolve(process.cwd(), 'package.json'));
 const docgenRc = fs.readFileSync(path.resolve(process.cwd(), '.docgenrc'), { encoding: 'utf8' });
+const usage = fs.readFileSync(path.resolve(process.cwd(), 'docs/USAGE.md'), { encoding: 'utf8' });
 const docgenJson = JSON.parse(docgenRc);
 
 md.write(`# ${pkg.name}\n`);
@@ -21,6 +22,7 @@ $ yarn add ${pkg.name}
 \`\`\`
 
 ## General usage
+${usage}
 
 ## Api
 `);
