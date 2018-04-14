@@ -34,22 +34,26 @@ import {
 
 
 ## Api
+
 ### `<Accordion>`
 
 Accordion descripiion
 
-**Props:**
+**Props**
 
 **className** 
+
+Component class
 
 type: string
 
 default value: `null`
+
 ### `<AccordionHeader>`
 
 AccordionHeader descripiion
 
-**Props:**
+**Props**
 
 **aria-level** 
 
@@ -88,11 +92,12 @@ type: boolean
 **togglePanel** (required)
 
 type: function (panelId: string) => void
+
 ### `<AccordionPanel>`
 
 AccordionPanel descripiion
 
-**Props:**
+**Props**
 
 **addPanel** (required)
 

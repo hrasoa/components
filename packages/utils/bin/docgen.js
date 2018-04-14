@@ -27,16 +27,15 @@ $ yarn add ${pkg.name}
 
 ${usage}
 
-## Api
-`);
+## Api`);
 
 docgenJson.components.forEach((componentPath) => {
   const src = readFile(componentPath);
   const componentInfos = reactDocs.parse(src);
+  md.write('\n\n');
   md.write(generateMarkdown(componentInfos));
-  md.write(os.EOL);
 });
-
+md.write(os.EOL);
 md.end();
 
 function readFile(p) {

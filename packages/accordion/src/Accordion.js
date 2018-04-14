@@ -6,6 +6,7 @@ type Props = {
   children: string | React.Node,
   /** @private */
   handleKeyNavigation: (e: SyntheticKeyboardEventElement<HTMLElement>) => void,
+  /** Component class */
   className?: ?string,
 };
 

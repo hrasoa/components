@@ -5,12 +5,13 @@ function generateTitle(title) {
 function generateProp(propName, prop) {
   const props = [
     `**${propName}** ${(prop.required ? '(required)' : '')}`,
+    prop.description || '',
     generatePropType(prop.flowType),
+    generateDefaultValue(prop),
   ];
-  if (prop.defaultValue) {
-    props.push(generateDefaultValue(prop));
-  }
-  return props.join('\n\n');
+  return props
+    .filter(propInfo => !!propInfo.length)
+    .join('\n\n');
 }
 
 function generatePropType(flowType) {
@@ -23,11 +24,11 @@ function generatePropType(flowType) {
 }
 
 function generateDefaultValue(prop) {
-  return `default value: \`${prop.defaultValue.value}\``;
+  return prop.defaultValue ? `default value: \`${prop.defaultValue.value}\`` : '';
 }
 
 function generateProps(props) {
-  const title = '**Props:**';
+  const title = '**Props**';
   return [
     title,
     Object.keys(props)
