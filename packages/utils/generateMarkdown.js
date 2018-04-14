@@ -16,11 +16,15 @@ function generateProp(propName, prop) {
 
 function generatePropType(flowType) {
   if (flowType.type === 'function') {
-    return `* type: function ${flowType.raw}`;
+    return formatType(`function ${flowType.raw}`);
   } else if (flowType.raw) {
-    return `* type: ${flowType.raw}`;
+    return formatType(flowType.raw);
   }
-  return `* type: ${flowType.name}`;
+  return formatType(flowType.name);
+}
+
+function formatType(type) {
+  return `* type: ${type}`;
 }
 
 function generateDefaultValue(prop) {
