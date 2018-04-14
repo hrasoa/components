@@ -7,6 +7,7 @@ type Props = {
   className?: ?string,
 };
 
+/** Accordion descripiion */
 const Accordion = (props: Props) => (
   <dl
     className={props.className}

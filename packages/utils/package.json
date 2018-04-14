@@ -2,8 +2,8 @@
   "name": "@hrasoa/components-utils",
   "version": "0.0.0",
   "description": "",
-  "scripts": {
-    "test": "jest"
+  "bin": {
+    "utils-docgen": "./bin/docgen.js"
   },
   "files": [
     "getDisplayName.js"
@@ -17,5 +17,8 @@
   "homepage": "https://github.com/hrasoa/components#readme",
   "peerDependencies": {
     "react": "^16.3.0"
+  },
+  "devDependencies": {
+    "react-docgen": "^2.20.1"
   }
 }

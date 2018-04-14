@@ -11,6 +11,7 @@ type Props = {
   isExpanded?: boolean,
 };
 
+/** AccordionPanel descripiion */
 class AccordionPanel extends React.Component<Props> {
   constructor(props: Props) {
     super(props);

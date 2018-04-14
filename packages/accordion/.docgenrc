@@ -1,0 +1,7 @@
+{
+  "components": [
+    "src/Accordion.js",
+    "src/AccordionHeader.js",
+    "src/AccordionPanel.js"
+  ]
+}

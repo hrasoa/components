@@ -18,8 +18,9 @@
   "rules": {
     "function-paren-newline": "off",
     "global-require": "off",
-    "no-use-before-define": ["error", { "functions": false }],
+    "import/no-dynamic-require": "off",
     "import/no-extraneous-dependencies": "off",
+    "no-use-before-define": ["error", { "functions": false }],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
   }
 }
