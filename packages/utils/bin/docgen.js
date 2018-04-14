@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const reactDocs = require('react-docgen');
 const generateMarkdown = require('../generateMarkdown');
@@ -34,7 +34,7 @@ docgenJson.components.forEach((componentPath) => {
   const src = readFile(componentPath);
   const componentInfos = reactDocs.parse(src);
   md.write(generateMarkdown(componentInfos));
-  md.write('\n\n');
+  md.write(os.EOL);
 });
 
 md.end();

@@ -3,9 +3,27 @@ function generateTitle(title) {
 }
 
 function generateProp(propName, prop) {
-  return [
+  const props = [
     `**${propName}** ${(prop.required ? '(required)' : '')}`,
-  ].join('\n\n');
+    generatePropType(prop.flowType),
+  ];
+  if (prop.defaultValue) {
+    props.push(generateDefaultValue(prop));
+  }
+  return props.join('\n\n');
+}
+
+function generatePropType(flowType) {
+  if (flowType.type === 'function') {
+    return `type: function ${flowType.raw}`;
+  } else if (flowType.raw) {
+    return `type: ${flowType.raw}`;
+  }
+  return `type: ${flowType.name}`;
+}
+
+function generateDefaultValue(prop) {
+  return `default value: \`${prop.defaultValue.value}\``;
 }
 
 function generateProps(props) {
@@ -24,7 +42,7 @@ function generateMarkdown(componentInfo) {
     generateTitle(componentInfo.displayName),
     componentInfo.description,
     generateProps(componentInfo.props),
-  ].join('\n');
+  ].join('\n\n');
 
   return markdownString;
 }
