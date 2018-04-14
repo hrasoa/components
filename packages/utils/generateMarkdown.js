@@ -16,15 +16,15 @@ function generateProp(propName, prop) {
 
 function generatePropType(flowType) {
   if (flowType.type === 'function') {
-    return `type: function ${flowType.raw}`;
+    return `* type: function ${flowType.raw}`;
   } else if (flowType.raw) {
-    return `type: ${flowType.raw}`;
+    return `* type: ${flowType.raw}`;
   }
-  return `type: ${flowType.name}`;
+  return `* type: ${flowType.name}`;
 }
 
 function generateDefaultValue(prop) {
-  return prop.defaultValue ? `default value: \`${prop.defaultValue.value}\`` : '';
+  return prop.defaultValue ? `* default value: \`${prop.defaultValue.value}\`` : '';
 }
 
 function generateProps(props) {

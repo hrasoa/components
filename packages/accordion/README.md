@@ -45,9 +45,9 @@ Accordion descripiion
 
 Component class
 
-type: string
+* type: string
 
-default value: `null`
+* default value: `null`
 
 ### `<AccordionHeader>`
 
@@ -57,41 +57,41 @@ AccordionHeader descripiion
 
 **aria-level** 
 
-type: string
+* type: string
 
-default value: `'3'`
+* default value: `'3'`
 
 **children** (required)
 
-type: string | React.Node
+* type: string | React.Node
 
 **className** 
 
-type: string
+* type: string
 
 **controls** (required)
 
-type: string
+* type: string
 
 **id** 
 
-type: string
+* type: string
 
 **isDisabled** 
 
-type: boolean
+* type: boolean
 
 **isExpanded** 
 
-type: boolean
+* type: boolean
 
 **isFocused** 
 
-type: boolean
+* type: boolean
 
 **togglePanel** (required)
 
-type: function (panelId: string) => void
+* type: function (panelId: string) => void
 
 ### `<AccordionPanel>`
 
@@ -101,28 +101,28 @@ AccordionPanel descripiion
 
 **addPanel** (required)
 
-type: function (id: string, ref: any) => void
+* type: function (id: string, ref: any) => void
 
 **aria-labelledby** 
 
-type: string
+* type: string
 
 **children** (required)
 
-type: string | React.Node
+* type: string | React.Node
 
 **className** 
 
-type: string
+* type: string
 
 **id** (required)
 
-type: string
+* type: string
 
 **isExpanded** 
 
-type: boolean
+* type: boolean
 
 **role** 
 
-type: string
+* type: string
