@@ -8,8 +8,8 @@ const generateMarkdown = require('../generateMarkdown');
 const md = fs.createWriteStream(resolve('README.md'));
 const pkg = require(resolve('package.json'));
 const docgenRc = readFile('.docgenrc');
-const usage = readFile('docs/USAGE.md');
 const docgenJson = JSON.parse(docgenRc);
+const usage = readFile('docs/USAGE.md');
 
 md.write(`# ${pkg.name}`);
 md.write(`
