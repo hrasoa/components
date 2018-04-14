@@ -15,9 +15,6 @@
     "url": "https://github.com/hrasoa/components/issues"
   },
   "homepage": "https://github.com/hrasoa/components#readme",
-  "peerDependencies": {
-    "react": "^16.3.0"
-  },
   "devDependencies": {
     "react-docgen": "^2.20.1"
   }
