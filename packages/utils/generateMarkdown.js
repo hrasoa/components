@@ -4,7 +4,7 @@ function generateTitle(title) {
 
 function generateProp(propName, prop) {
   const props = [
-    `\`${propName}\` ${(prop.required ? '**(required)**' : '')}`,
+    `\`${propName}\` ${(prop.required ? '(:exclamation: required)' : '')}`,
     prop.description || '',
     generatePropType(prop.flowType),
     generateDefaultValue(prop),
