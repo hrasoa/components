@@ -61,7 +61,7 @@ type: string
 
 default value: `'3'`
 
-`children` (:exclamation:required)
+`children` :exclamation:(required)
 
 type: string | React.Node
 
@@ -69,7 +69,7 @@ type: string | React.Node
 
 type: string
 
-`controls` (:exclamation:required)
+`controls` :exclamation:(required)
 
 type: string
 
@@ -89,7 +89,7 @@ type: boolean
 
 type: boolean
 
-`togglePanel` (:exclamation:required)
+`togglePanel` :exclamation:(required)
 
 type: function (panelId: string) => void
 
@@ -99,7 +99,7 @@ AccordionPanel descripiion
 
 **Props**
 
-`addPanel` (:exclamation:required)
+`addPanel` :exclamation:(required)
 
 type: function (id: string, ref: any) => void
 
@@ -107,7 +107,7 @@ type: function (id: string, ref: any) => void
 
 type: string
 
-`children` (:exclamation:required)
+`children` :exclamation:(required)
 
 type: string | React.Node
 
@@ -115,7 +115,7 @@ type: string | React.Node
 
 type: string
 
-`id` (:exclamation:required)
+`id` :exclamation:(required)
 
 type: string
 
