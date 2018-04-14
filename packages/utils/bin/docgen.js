@@ -6,7 +6,7 @@ const reactDocs = require('react-docgen');
 const generateMarkdown = require('../generateMarkdown');
 
 const md = fs.createWriteStream(resolve('README.md'));
-const pkg = require(path.resolve(process.cwd(), 'package.json'));
+const pkg = require(resolve('package.json'));
 const docgenRc = readFile('.docgenrc');
 const usage = readFile('docs/USAGE.md');
 const docgenJson = JSON.parse(docgenRc);
