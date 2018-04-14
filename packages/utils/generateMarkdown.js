@@ -24,7 +24,7 @@ function generatePropType(flowType) {
 }
 
 function formatType(type) {
-  return `* type: ${type}`;
+  return `type: ${type}`;
 }
 
 function generateDefaultValue(prop) {
