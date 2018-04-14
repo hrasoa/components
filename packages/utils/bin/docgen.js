@@ -5,10 +5,10 @@ const path = require('path');
 const reactDocs = require('react-docgen');
 const generateMarkdown = require('../generateMarkdown');
 
-const md = fs.createWriteStream(path.resolve(process.cwd(), 'README.md'));
+const md = fs.createWriteStream(resolve('README.md'));
 const pkg = require(path.resolve(process.cwd(), 'package.json'));
-const docgenRc = fs.readFileSync(path.resolve(process.cwd(), '.docgenrc'), { encoding: 'utf8' });
-const usage = fs.readFileSync(path.resolve(process.cwd(), 'docs/USAGE.md'), { encoding: 'utf8' });
+const docgenRc = readFile('.docgenrc');
+const usage = readFile('docs/USAGE.md');
 const docgenJson = JSON.parse(docgenRc);
 
 md.write(`# ${pkg.name}`);
@@ -31,10 +31,18 @@ ${usage}
 `);
 
 docgenJson.components.forEach((componentPath) => {
-  const src = fs.readFileSync(path.resolve(process.cwd(), componentPath), { encoding: 'utf8' });
+  const src = readFile(componentPath);
   const componentInfos = reactDocs.parse(src);
   md.write(generateMarkdown(componentInfos));
   md.write('\n\n');
 });
 
 md.end();
+
+function readFile(p) {
+  return fs.readFileSync(resolve(p), { encoding: 'utf8' });
+}
+
+function resolve(p) {
+  return path.resolve(process.cwd(), p);
+}

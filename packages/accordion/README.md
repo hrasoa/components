@@ -10,6 +10,7 @@ $ yarn add @hrasoa/accordion
 ```
 
 ## General usage
+
 ```jsx
 import {
   Accordion,
