@@ -38,7 +38,7 @@ import {
 
 Accordion descripiion
 
-Props
+**Props:**
 
 **className** 
 
@@ -49,7 +49,7 @@ default value: `null`
 
 AccordionHeader descripiion
 
-Props
+**Props:**
 
 **aria-level** 
 
@@ -92,7 +92,7 @@ type: function (panelId: string) => void
 
 AccordionPanel descripiion
 
-Props
+**Props:**
 
 **addPanel** (required)
 

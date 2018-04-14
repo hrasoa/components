@@ -27,7 +27,7 @@ function generateDefaultValue(prop) {
 }
 
 function generateProps(props) {
-  const title = 'Props';
+  const title = '**Props:**';
   return [
     title,
     Object.keys(props)
