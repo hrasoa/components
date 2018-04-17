@@ -1,6 +1,6 @@
 # @hrasoa/accordion
 
-> Accordion
+Accordion
 
 ## Installation
 
@@ -41,7 +41,7 @@ Accordion descripiion
 
 **Props**
 
-`className` 
+**className** 
 
 Component class
 
@@ -55,43 +55,23 @@ AccordionHeader descripiion
 
 **Props**
 
-`aria-level` 
+**aria-level** 
 
 type: string
 
 default value: `'3'`
 
-`children` :exclamation:(required)
-
-type: string | React.Node
-
-`className` 
+**className** 
 
 type: string
 
-`controls` :exclamation:(required)
+**controls** :exclamation:(required)
 
 type: string
 
-`id` 
+**id** 
 
 type: string
-
-`isDisabled` 
-
-type: boolean
-
-`isExpanded` 
-
-type: boolean
-
-`isFocused` 
-
-type: boolean
-
-`togglePanel` :exclamation:(required)
-
-type: function (panelId: string) => void
 
 ### `<AccordionPanel>`
 
@@ -99,30 +79,22 @@ AccordionPanel descripiion
 
 **Props**
 
-`addPanel` :exclamation:(required)
-
-type: function (id: string, ref: any) => void
-
-`aria-labelledby` 
+**aria-labelledby** 
 
 type: string
 
-`children` :exclamation:(required)
-
-type: string | React.Node
-
-`className` 
+**className** 
 
 type: string
 
-`id` :exclamation:(required)
+**id** :exclamation:(required)
 
 type: string
 
-`isExpanded` 
+**isExpanded** 
 
 type: boolean
 
-`role` 
+**role** 
 
 type: string

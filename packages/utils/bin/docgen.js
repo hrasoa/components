@@ -14,7 +14,7 @@ const usage = readFile('docs/USAGE.md');
 md.write(`# ${pkg.name}`);
 md.write(`
 
-> ${pkg.description}
+${pkg.description}
 
 ## Installation
 

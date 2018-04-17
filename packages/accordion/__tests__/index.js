@@ -7,7 +7,7 @@ import {
 } from '../src';
 
 type Props = {
-  renderHeader: (i: number) => string | React.Node,
+  renderHeader?: (i: number) => string | React.Node,
   className?: string,
   allowTogle?: boolean,
   allowMultiple?: boolean,
@@ -24,7 +24,7 @@ const getItems = (expandedIds, renderHeader) => {
         id={`header-${i}`}
         controls={`panel-${i}`}
       >
-        {renderHeader(i)}
+        {renderHeader && renderHeader(i)}
       </AccordionHeader>,
       <AccordionPanel
         key={`panel-${i}`}

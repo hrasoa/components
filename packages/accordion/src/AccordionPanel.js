@@ -2,8 +2,10 @@
 import * as React from 'react';
 
 type Props = {
+  /** @private */
   children: string | React.Node,
   id: string,
+  /** @private */
   addPanel: (id: string, ref: any) => void,
   className?: string,
   'aria-labelledby'?: string,
