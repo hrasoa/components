@@ -8,6 +8,7 @@ type Props = {
   /** @private */
   addPanel: (id: string, ref: any) => void,
   className?: string,
+  expandedClass?: string,
   'aria-labelledby'?: string,
   role?: string,
   isExpanded?: boolean,
@@ -15,6 +16,10 @@ type Props = {
 
 /** AccordionPanel descripiion */
 class AccordionPanel extends React.Component<Props> {
+  static defaultProps = {
+    expandedClass: 'is-expanded',
+  }
+
   constructor(props: Props) {
     super(props);
     this.props.addPanel(this.props.id, this.ref);
@@ -27,19 +32,26 @@ class AccordionPanel extends React.Component<Props> {
   ref: React.Ref<'dd'> = React.createRef();
 
   render() {
+    const {
+      className,
+      expandedClass,
+      isExpanded,
+      addPanel,
+      ...rest
+    } = this.props;
     return (
       <dd
-        id={this.props.id}
-        className={this.props.className}
-        arial-labelledby={this.props['aria-labelledby']}
+        className={getClassName(this.props)}
         ref={this.ref}
-        hidden={!this.props.isExpanded}
-        role={this.props.role}
-      >
-        {this.props.children}
-      </dd>
+        {...rest}
+      />
     );
   }
+}
+
+function getClassName({ className, expandedClass, isExpanded }): string | null {
+  const name = `${className || ''}${isExpanded ? ` ${expandedClass || ''}` : ''}`;
+  return name.length ? name.trim() : null;
 }
 
 export default AccordionPanel;

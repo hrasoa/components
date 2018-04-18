@@ -41,7 +41,7 @@ Accordion descripiion
 
 **Props**
 
-**className** 
+**`className`** 
 
 Component class
 
@@ -55,21 +55,21 @@ AccordionHeader descripiion
 
 **Props**
 
-**aria-level** 
+**`aria-level`** 
 
 type: string
 
 default value: `'3'`
 
-**className** 
+**`className`** 
 
 type: string
 
-**controls** :exclamation:(required)
+**`controls`** :exclamation:(required)
 
 type: string
 
-**id** 
+**`id`** 
 
 type: string
 
@@ -79,22 +79,28 @@ AccordionPanel descripiion
 
 **Props**
 
-**aria-labelledby** 
+**`aria-labelledby`** 
 
 type: string
 
-**className** 
+**`className`** 
 
 type: string
 
-**id** :exclamation:(required)
+**`expandedClass`** 
 
 type: string
 
-**isExpanded** 
+default value: `'is-expanded'`
+
+**`id`** :exclamation:(required)
+
+type: string
+
+**`isExpanded`** 
 
 type: boolean
 
-**role** 
+**`role`** 
 
 type: string
