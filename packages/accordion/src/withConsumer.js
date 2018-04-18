@@ -28,13 +28,12 @@ function withConsumer(
 ): (React.ComponentType<PropsOutput>) => React.ComponentType<PropsInput> {
   return (WrappedComponent) => {
     function WithConsumer(props) {
-      const mappedProps = mapValueToProps || defaultMapValueToProps;
       return (
         <Consumer>
           {(value: ProviderValue) => (
             <WrappedComponent
               {...props}
-              {...mappedProps(value, props)}
+              {...(mapValueToProps ? mapValueToProps(value, props) : {})}
             />
           )}
         </Consumer>
@@ -43,16 +42,6 @@ function withConsumer(
 
     WithConsumer.displayName = `AccordionConsumer(${getDisplayName(WrappedComponent)})`;
     return WithConsumer;
-  };
-}
-
-function defaultMapValueToProps(value, props) {
-  const id: string = props.controls || props.id;
-  return {
-    isExpanded: value.isExpanded(id),
-    isDisabled: value.isDisabled(id),
-    isFocused: value.isFocused(id),
-    togglePanel: value.togglePanel,
   };
 }
 

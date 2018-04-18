@@ -10,11 +10,16 @@ const { Provider, Consumer } = React.createContext();
 
 const Accordion = withProvider(Provider)(BaseAccordion);
 
-const AccordionHeader = withConsumer(Consumer)(BaseAccordionHeader);
+const AccordionHeader = withConsumer(Consumer, (value, ownProps: { controls: string }) => ({
+  isExpanded: value.isExpanded(ownProps.controls),
+  isDisabled: value.isDisabled(ownProps.controls),
+  isFocused: value.isFocused(ownProps.controls),
+  togglePanel: value.togglePanel,
+}))(BaseAccordionHeader);
 
-const AccordionPanel = withConsumer(Consumer, (value, props) => ({
+const AccordionPanel = withConsumer(Consumer, (value, ownProps: { id: string }) => ({
   addPanel: value.addPanel,
-  isExpanded: value.isExpanded(props.id),
+  isExpanded: value.isExpanded(ownProps.id),
 }))(BaseAccordionPanel);
 
 export {
