@@ -39,23 +39,29 @@ class AccordionHeader extends React.Component<Props> {
   ref: { current: null | HTMLButtonElement } = React.createRef();
 
   render() {
+    const {
+      controls,
+      isDisabled,
+      isExpanded,
+      isFocused,
+      togglePanel,
+      'aria-level': ariaLevel,
+      ...rest
+    } = this.props;
     return (
       <dt
-        aria-level={this.props['aria-level']}
+        aria-level={ariaLevel}
         role="heading"
       >
         <button
-          id={this.props.id}
-          className={this.props.className}
-          aria-controls={this.props.controls}
-          aria-disabled={this.props.isDisabled}
-          aria-expanded={this.props.isExpanded}
+          aria-controls={controls}
+          aria-disabled={isDisabled}
+          aria-expanded={isExpanded}
           type="button"
           ref={this.ref}
           onClick={this.onTogglePanel}
-        >
-          {this.props.children}
-        </button>
+          {...rest}
+        />
       </dt>
     );
   }

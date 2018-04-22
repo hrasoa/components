@@ -6,7 +6,7 @@ type Props = {
   children: string | React.Node,
   id: string,
   /** @private */
-  addPanel: (id: string, ref: any) => void,
+  addPanel: (id: string, ref: { current: null | HTMLElement }) => void,
   className?: string,
   expandedClass?: string,
   'aria-labelledby'?: string,
@@ -29,7 +29,7 @@ class AccordionPanel extends React.Component<Props> {
     return this.props.isExpanded !== nextProps.isExpanded;
   }
 
-  ref: React.Ref<'dd'> = React.createRef();
+  ref: { current: null | HTMLElement } = React.createRef();
 
   render() {
     const {

@@ -56,8 +56,8 @@ function withProvider(
         return { panelIds, expandedIds };
       }
 
-      addPanel = (panelId: string, ref: any): void => {
-        if (this.panelIds.indexOf(panelId) >= 0) return;
+      addPanel = (panelId: string, ref: { current: null | HTMLElement }): void => {
+        if (this.panelIds.indexOf(panelId) >= 0 || !ref) return;
         this.panelIds.push(panelId);
         this.panels[panelId] = ref;
       }
