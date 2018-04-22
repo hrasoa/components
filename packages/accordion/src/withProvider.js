@@ -94,7 +94,7 @@ function withProvider(
           if (ctrlModifier) {
             Object.keys(this.panels).every((panelId) => {
               const ref = this.panels[panelId];
-              if (ref.current.contains(e.target)) {
+              if (ref.current && ref.current.contains(e.target)) {
                 this.setState({
                   focusedId: panelId,
                 });
@@ -135,7 +135,7 @@ function withProvider(
       }
 
       panelIds: Array<string>;
-      panels: { [panelId: string]: any } = {};
+      panels: { [panelId: string]: { current: null | HTMLElement } } = {};
       allowMultiple: boolean;
 
       render() {
