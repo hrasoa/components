@@ -25,7 +25,7 @@ class AccordionHeader extends React.Component<Props> {
   }
 
   componentDidUpdate() {
-    if (this.props.isFocused) {
+    if (this.props.isFocused && this.ref.current) {
       this.ref.current.focus();
     }
   }
@@ -36,7 +36,7 @@ class AccordionHeader extends React.Component<Props> {
 
   onTogglePanel: Function;
 
-  ref: React.Ref<'button'> = React.createRef();
+  ref: { current: null | HTMLButtonElement } = React.createRef();
 
   render() {
     return (
