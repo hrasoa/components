@@ -6,6 +6,7 @@ import {
   AccordionHeader,
   AccordionPanel,
 } from '../../../packages/accordion/src';
+import './style.scss';
 
 type Props = {
   renderHeader?: (i: number) => string | React.Node,
@@ -44,7 +45,7 @@ const getItems = (expandedIds, renderHeader) => {
 
 const AccordionTest = ({ expandedIds, renderHeader, ...props }: Props) => (
   <AccordionProvider {...props}>
-    <Accordion>
+    <Accordion className="accordion">
       {getItems(expandedIds, renderHeader)}
     </Accordion>
   </AccordionProvider>

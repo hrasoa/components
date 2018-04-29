@@ -22,6 +22,10 @@ class AccordionProvider extends React.Component<Props, State> {
     className: null,
   };
 
+  static getDerivedStateFromProps(nextProps: {}, prevState: {}) {
+    return prevState;
+  }
+
   constructor(props: Props) {
     super(props);
     const { panelIds, expandedIds } = this.getPanels();
@@ -36,6 +40,10 @@ class AccordionProvider extends React.Component<Props, State> {
     this.allowMultiple = this.props.allowMultiple || expandedKeys.length > 1;
   }
 
+  componentDidMount() {
+    console.log(this.state);
+  }
+
   getPanels(): { panelIds: Array<string>, expandedIds: { [panelId: string]: boolean } } {
     const panelIds = [];
     const expandedIds = {};
@@ -46,10 +54,14 @@ class AccordionProvider extends React.Component<Props, State> {
     return { panelIds, expandedIds };
   }
 
-  addPanel = (panelId: string, ref: { current: null | HTMLElement }): void => {
+  addPanel = (
+    panelId: string,
+    ref: { current: null | HTMLElement },
+    isInitiallyExpanded: boolean,
+  ): void => {
     if (this.panelIds.indexOf(panelId) >= 0 || !ref) return;
     this.panelIds.push(panelId);
-    this.panels[panelId] = ref;
+    this.panels[panelId] = { ref, isInitiallyExpanded };
   }
 
   isDisabled = (panelId: string): boolean =>
@@ -83,7 +95,7 @@ class AccordionProvider extends React.Component<Props, State> {
       // Inside a panel
       if (ctrlModifier) {
         Object.keys(this.panels).every((panelId) => {
-          const ref = this.panels[panelId];
+          const { ref } = this.panels[panelId];
           if (ref.current && ref.current.contains(e.target)) {
             this.setState({
               focusedId: panelId,
@@ -125,7 +137,14 @@ class AccordionProvider extends React.Component<Props, State> {
   }
 
   panelIds: Array<string>;
-  panels: { [panelId: string]: { current: null | HTMLElement } } = {};
+
+  panels: {
+    [panelId: string]: {
+      ref: { current: null | HTMLElement },
+      isInitiallyExpanded: boolean,
+    }
+  } = {};
+
   allowMultiple: boolean;
 
   render() {

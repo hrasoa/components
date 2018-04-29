@@ -25,6 +25,10 @@ class AccordionPanel extends React.Component<Props> {
     this.props.addPanel(this.props.id, this.ref);
   }
 
+  componentDidMount() {
+    console.log(this.state);
+  }
+
   shouldComponentUpdate(nextProps: Props) {
     return this.props.isExpanded !== nextProps.isExpanded;
   }
