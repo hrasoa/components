@@ -145,7 +145,7 @@ class AccordionProvider extends React.Component<Props, State> {
       ref: { current: null | HTMLElement },
       isInitiallyExpanded: boolean,
     }
-  } = {};
+  };
 
   allowMultiple: boolean;
 
