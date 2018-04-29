@@ -1,3 +1,9 @@
-.accordion dd:not(.is-expanded) {
-  display: none;
+.accordion {
+  dt [aria-expanded="true"] {
+    font-weight: bold;
+  }
+
+  dd:not(.is-expanded) {
+    display: none;
+  }
 }
