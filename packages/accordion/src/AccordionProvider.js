@@ -5,7 +5,9 @@ const { Provider, Consumer } = React.createContext();
 
 type Props = {
   children: React.Node,
+  /** @public */
   allowMultiple?: boolean,
+  /** @public */
   allowToggle?: boolean,
 };
 

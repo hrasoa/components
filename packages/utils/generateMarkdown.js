@@ -38,7 +38,7 @@ function generateProps(props) {
     Object.keys(props)
       .sort()
       .filter(propName =>
-        !(props[propName].description && props[propName].description.match(/@private/)))
+        props[propName].description && props[propName].description.match(/@public/))
       .map(propName => generateProp(propName, props[propName]))
       .join('\n\n'),
   ].join('\n\n');

@@ -2,22 +2,20 @@
 import * as React from 'react';
 
 type Props = {
-  /** @private */
-  children: string | React.Node,
+  /** @public */
   id: string,
-  /** @private */
+  /** @public */
+  expandedClass?: string,
+  /** @public */
+  expanded?: boolean,
+  children: string | React.Node,
   addPanel: (
     id: string,
     ref: { current: null | HTMLElement },
     isInitiallyExpanded: ?boolean,
   ) => void,
   className?: string,
-  expandedClass?: string,
-  'aria-labelledby'?: string,
-  role?: string,
-  /** @private */
   isExpanded?: boolean,
-  expanded?: boolean,
 };
 
 /** AccordionPanel descripiion */

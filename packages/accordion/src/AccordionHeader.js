@@ -2,19 +2,13 @@
 import * as React from 'react';
 
 type Props = {
-  /** @private */
-  children: string | React.Node,
+  /** @public */
   controls: string,
-  /** @private */
+  children: string | React.Node,
   togglePanel: (panelId: string) => void,
-  id?: string,
-  className?: string,
   'aria-level'?: string,
-  /** @private */
   isDisabled?: boolean,
-  /** @private */
   isExpanded?: boolean,
-  /** @private */
   isFocused?: boolean,
 };
 
