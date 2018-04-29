@@ -8,41 +8,34 @@ type ProviderValue = {
   isFocused: (id: string) => boolean,
   togglePanel: (id: string) => void,
   addPanel: (id: string) => void,
-};
-
-type MappedProps = {
-  togglePanel?: (id: string) => void,
-  addPanel?: (id: string) => void,
-  isDisabled?: boolean,
-  isExpanded?: boolean,
-  isFocused?: boolean,
+  handleKeyNavigation: (e: SyntheticKeyboardEventElement<HTMLElement>) => void,
 };
 
 type PropsInput = any;
 
-type PropsOutput = $Shape<PropsInput & MappedProps>;
+type PropsOutput = any;
 
-function withConsumer(
+function withAccordion(
   Consumer: React.ComponentType<any>,
-  mapValueToProps?: (value: ProviderValue, props: PropsInput) => PropsOutput,
+  mapValueToProps?: (value: ProviderValue, ownProps: PropsInput) => PropsOutput,
 ): (React.ComponentType<PropsOutput>) => React.ComponentType<PropsInput> {
   return (WrappedComponent) => {
-    function WithConsumer(props) {
+    function WithAccordion(ownProps) {
       return (
         <Consumer>
           {(value: ProviderValue) => (
             <WrappedComponent
-              {...props}
-              {...(mapValueToProps ? mapValueToProps(value, props) : {})}
+              {...ownProps}
+              {...(mapValueToProps ? mapValueToProps(value, ownProps) : {})}
             />
           )}
         </Consumer>
       );
     }
 
-    WithConsumer.displayName = `AccordionConsumer(${getDisplayName(WrappedComponent)})`;
-    return WithConsumer;
+    WithAccordion.displayName = `withAccordion(${getDisplayName(WrappedComponent)})`;
+    return WithAccordion;
   };
 }
 
-export default withConsumer;
+export default withAccordion;

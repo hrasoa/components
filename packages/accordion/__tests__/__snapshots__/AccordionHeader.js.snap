@@ -7,9 +7,8 @@ exports[`AccordionHeader initial 1`] = `
 >
   <button
     aria-controls="panel-1"
-    aria-disabled={false}
-    aria-expanded={false}
-    className={null}
+    aria-disabled={undefined}
+    aria-expanded={undefined}
     id="header-1"
     onClick={[Function]}
     type="button"
