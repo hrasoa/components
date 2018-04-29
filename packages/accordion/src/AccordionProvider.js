@@ -6,6 +6,7 @@ const { Provider, Consumer } = React.createContext();
 
 type Props = {
   children: Node,
+  onChange?: Function,
   /** @public */
   allowMultiple?: boolean,
   /** @public */
@@ -35,6 +36,22 @@ class AccordionProvider extends Component<Props, State> {
     this.panels = {};
     this.panelIds = [];
     this.allowMultiple = false;
+  }
+
+  componentDidUpdate(prevProps: Props, prevState: State) {
+    const { expandedId, expandedStates } = this.state;
+    if (this.props.onChange && (
+      (
+        this.allowMultiple &&
+        Object.keys(prevState.expandedStates).length &&
+        prevState.expandedStates !== expandedStates) ||
+      (
+        !this.allowMultiple &&
+        prevState.expandedId &&
+        prevState.expandedId !== expandedId))
+    ) {
+      this.props.onChange(this.allowMultiple ? expandedStates : expandedId);
+    }
   }
 
   addPanel = (
