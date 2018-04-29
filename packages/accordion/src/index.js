@@ -26,5 +26,6 @@ export {
   Accordion,
   AccordionHeader,
   AccordionPanel,
+  Consumer as AccordionConsumer,
   withAccordion,
 };
