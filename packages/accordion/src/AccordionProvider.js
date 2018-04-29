@@ -59,7 +59,7 @@ class AccordionProvider extends React.Component<Props, State> {
     ref: { current: null | HTMLElement },
     isInitiallyExpanded: boolean,
   ): void => {
-    if (this.panelIds.indexOf(panelId) >= 0 || !ref) return;
+    if (this.panels[panelId]) return;
     this.panelIds.push(panelId);
     this.panels[panelId] = { ref, isInitiallyExpanded };
   }
