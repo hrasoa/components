@@ -2,24 +2,24 @@
 import * as React from 'react';
 
 type Props = {
-  /** @private */
   children: string | React.Node,
-  /** @private */
   handleKeyNavigation: (e: SyntheticKeyboardEventElement<HTMLElement>) => void,
-  /** Component class */
   className?: ?string,
 };
 
-/** Accordion descripiion */
-const Accordion = (props: Props) => (
-  <dl
-    className={props.className}
-    role="presentation"
-    onKeyDown={props.handleKeyNavigation}
-  >
-    {props.children}
-  </dl>
-);
+const Accordion = (props: Props) => {
+  const {
+    handleKeyNavigation,
+    ...rest
+  } = props;
+  return (
+    <dl
+      role="presentation"
+      onKeyDown={props.handleKeyNavigation}
+      {...rest}
+    />
+  );
+};
 
 Accordion.defaultProps = {
   className: null,

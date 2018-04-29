@@ -18,7 +18,6 @@ type Props = {
   isExpanded?: boolean,
 };
 
-/** AccordionPanel descripiion */
 class AccordionPanel extends React.Component<Props> {
   static defaultProps = {
     expandedClass: 'is-expanded',

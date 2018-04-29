@@ -12,7 +12,6 @@ type Props = {
   isFocused?: boolean,
 };
 
-/** AccordionHeader descripiion */
 class AccordionHeader extends React.Component<Props> {
   static defaultProps = {
     'aria-level': '3',
