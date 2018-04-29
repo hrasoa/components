@@ -48,8 +48,9 @@ class AccordionProvider extends Component<Props, State> {
       (
         !this.allowMultiple &&
         prevState.expandedId &&
-        prevState.expandedId !== expandedId))
-    ) {
+        prevState.expandedId !== expandedId
+      )
+    )) {
       this.props.onChange(this.allowMultiple ? expandedStates : expandedId);
     }
   }
