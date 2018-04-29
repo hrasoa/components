@@ -6,12 +6,18 @@ type Props = {
   children: string | React.Node,
   id: string,
   /** @private */
-  addPanel: (id: string, ref: { current: null | HTMLElement }) => void,
+  addPanel: (
+    id: string,
+    ref: { current: null | HTMLElement },
+    isInitiallyExpanded: ?boolean,
+  ) => void,
   className?: string,
   expandedClass?: string,
   'aria-labelledby'?: string,
   role?: string,
+  /** @private */
   isExpanded?: boolean,
+  expanded?: boolean,
 };
 
 /** AccordionPanel descripiion */
@@ -22,11 +28,7 @@ class AccordionPanel extends React.Component<Props> {
 
   constructor(props: Props) {
     super(props);
-    this.props.addPanel(this.props.id, this.ref);
-  }
-
-  componentDidMount() {
-    console.log(this.state);
+    this.props.addPanel(this.props.id, this.ref, this.props.expanded);
   }
 
   shouldComponentUpdate(nextProps: Props) {

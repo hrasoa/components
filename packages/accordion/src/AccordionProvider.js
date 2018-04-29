@@ -11,7 +11,7 @@ type Props = {
 
 type State = {
   expandedId: ?string,
-  expandedIds: { [panelId: string]: boolean },
+  expandedStates: { [panelId: string]: boolean },
   focusedId: ?string,
 };
 
@@ -28,30 +28,13 @@ class AccordionProvider extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    const { panelIds, expandedIds } = this.getPanels();
-    const expandedKeys = Object.keys(expandedIds);
     this.state = {
-      expandedId: expandedKeys.length > 0 ? expandedKeys[0] : panelIds[0],
-      expandedIds,
+      expandedId: null,
+      expandedStates: {},
       focusedId: null,
     };
     this.panels = {};
-    this.panelIds = panelIds;
-    this.allowMultiple = this.props.allowMultiple || expandedKeys.length > 1;
-  }
-
-  componentDidMount() {
-    console.log(this.state);
-  }
-
-  getPanels(): { panelIds: Array<string>, expandedIds: { [panelId: string]: boolean } } {
-    const panelIds = [];
-    const expandedIds = {};
-    React.Children.forEach(this.props.children, (child) => {
-      if (child.props.controls) panelIds.push(child.props.controls);
-      if (child.props.isExpanded) expandedIds[child.props.id] = true;
-    });
-    return { panelIds, expandedIds };
+    this.panelIds = [];
   }
 
   addPanel = (
@@ -62,6 +45,22 @@ class AccordionProvider extends React.Component<Props, State> {
     if (this.panels[panelId]) return;
     this.panelIds.push(panelId);
     this.panels[panelId] = { ref, isInitiallyExpanded };
+    this.allowMultiple =
+      !!this.props.allowMultiple ||
+      this.panelIds
+        .map(id => this.panels[id].isInitiallyExpanded)
+        .filter(expanded => expanded === true)
+        .length > 2;
+
+    this.setState((prevState) => {
+      const prevExpandedId = !prevState.expandedId && this.panelIds.length ?
+        this.panelIds[0] :
+        prevState.expandedId;
+      return {
+        expandedId: isInitiallyExpanded ? panelId : prevExpandedId,
+        expandedStates: { ...prevState.expandedStates, [panelId]: !!isInitiallyExpanded },
+      };
+    });
   }
 
   isDisabled = (panelId: string): boolean =>
@@ -69,17 +68,19 @@ class AccordionProvider extends React.Component<Props, State> {
 
   isExpanded = (panelId: string): boolean =>
     (this.allowMultiple ?
-      this.state.expandedIds[panelId] : this.state.expandedId === panelId);
+      this.state.expandedStates[panelId] : this.state.expandedId === panelId);
 
   isFocused = (panelId: string): boolean =>
     this.state.focusedId === panelId;
 
   togglePanel = (panelId: string): void => {
+    if (!this.panels[panelId]) return;
+
     this.setState(prevState => ({
       expandedId: this.props.allowToggle && prevState.expandedId === panelId ? null : panelId,
-      expandedIds: {
-        ...prevState.expandedIds,
-        [panelId]: !prevState.expandedIds[panelId],
+      expandedStates: {
+        ...prevState.expandedStates,
+        [panelId]: !prevState.expandedStates[panelId],
       },
       focusedId: panelId,
     }));

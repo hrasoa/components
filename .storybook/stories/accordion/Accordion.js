@@ -31,7 +31,7 @@ const getItems = (expandedIds, renderHeader) => {
       <AccordionPanel
         key={`panel-${i}`}
         id={`panel-${i}`}
-        isExpanded={expandedIds && expandedIds.indexOf(i) >= 0}
+        expanded={!!(expandedIds && expandedIds.indexOf(`panel-${i}`) >= 0)}
       >
         <ul>
           <li><label htmlFor={`input-${i}-0`}>Label <input id={`input-${i}-0`} /></label></li>
