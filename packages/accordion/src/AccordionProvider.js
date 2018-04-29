@@ -64,11 +64,11 @@ class AccordionProvider extends Component<Props, State> {
         .length > 2;
 
     this.setState((prevState) => {
-      const prevExpandedId = !prevState.expandedId && this.panelIds.length ?
+      const expandedId = !prevState.expandedId && this.panelIds.length ?
         this.panelIds[0] :
         prevState.expandedId;
       return {
-        expandedId: isInitiallyExpanded ? panelId : prevExpandedId,
+        expandedId: isInitiallyExpanded ? panelId : expandedId,
         expandedStates: { ...prevState.expandedStates, [panelId]: !!isInitiallyExpanded },
       };
     });
