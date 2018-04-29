@@ -1,10 +1,11 @@
 // @flow
-import * as React from 'react';
+import React, { Component } from 'react';
+import type { Node } from 'react';
 
 const { Provider, Consumer } = React.createContext();
 
 type Props = {
-  children: React.Node,
+  children: Node,
   /** @public */
   allowMultiple?: boolean,
   /** @public */
@@ -17,7 +18,7 @@ type State = {
   focusedId: ?string,
 };
 
-class AccordionProvider extends React.Component<Props, State> {
+class AccordionProvider extends Component<Props, State> {
   static defaultProps = {
     allowMultiple: false,
     allowTogle: false,
