@@ -1,5 +1,7 @@
 // @flow
-import * as React from 'react';
+import React from 'react';
+import type { Node } from 'react';
+
 import {
   AccordionProvider,
   Accordion,
@@ -9,7 +11,7 @@ import {
 import './style.scss';
 
 type Props = {
-  renderHeader?: (i: number) => string | React.Node,
+  renderHeader?: (i: number) => string | Node,
   className?: string,
   allowTogle?: boolean,
   allowMultiple?: boolean,
