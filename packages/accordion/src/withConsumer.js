@@ -15,12 +15,12 @@ type PropsInput = any;
 
 type PropsOutput = any;
 
-function withAccordion(
+function withConsumer(
   Consumer: React.ComponentType<any>,
   mapValueToProps?: (value: ProviderValue, ownProps: PropsInput) => PropsOutput,
 ): (React.ComponentType<PropsOutput>) => React.ComponentType<PropsInput> {
   return (WrappedComponent) => {
-    function WithAccordion(ownProps) {
+    function WithConsumer(ownProps) {
       return (
         <Consumer>
           {(value: ProviderValue) => (
@@ -33,9 +33,9 @@ function withAccordion(
       );
     }
 
-    WithAccordion.displayName = `withAccordion(${getDisplayName(WrappedComponent)})`;
-    return WithAccordion;
+    WithConsumer.displayName = `withAccordion(${getDisplayName(WrappedComponent)})`;
+    return WithConsumer;
   };
 }
 
-export default withAccordion;
+export default withConsumer;

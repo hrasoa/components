@@ -3,20 +3,22 @@ import BaseAccordion from './Accordion';
 import BaseAccordionHeader from './AccordionHeader';
 import BaseAccordionPanel from './AccordionPanel';
 import AccordionProvider, { Consumer } from './AccordionProvider';
-import withAccordion from './withAccordion';
+import withConsumer from './withConsumer';
 
-const Accordion = withAccordion(Consumer, value => ({
+const withAccordion = withConsumer.bind(null, Consumer);
+
+const Accordion = withAccordion(value => ({
   handleKeyNavigation: value.handleKeyNavigation,
 }))(BaseAccordion);
 
-const AccordionHeader = withAccordion(Consumer, (value, ownProps: { controls: string }) => ({
+const AccordionHeader = withAccordion((value, ownProps: { controls: string }) => ({
   isExpanded: value.isExpanded(ownProps.controls),
   isDisabled: value.isDisabled(ownProps.controls),
   isFocused: value.isFocused(ownProps.controls),
   togglePanel: value.togglePanel,
 }))(BaseAccordionHeader);
 
-const AccordionPanel = withAccordion(Consumer, (value, ownProps: { id: string }) => ({
+const AccordionPanel = withAccordion((value, ownProps: { id: string }) => ({
   addPanel: value.addPanel,
   isExpanded: value.isExpanded(ownProps.id),
 }))(BaseAccordionPanel);
@@ -26,6 +28,5 @@ export {
   Accordion,
   AccordionHeader,
   AccordionPanel,
-  Consumer as AccordionConsumer,
   withAccordion,
 };
