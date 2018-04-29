@@ -35,6 +35,7 @@ class AccordionProvider extends React.Component<Props, State> {
     };
     this.panels = {};
     this.panelIds = [];
+    this.allowMultiple = false;
   }
 
   addPanel = (
