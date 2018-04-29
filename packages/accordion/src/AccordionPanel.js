@@ -42,6 +42,7 @@ class AccordionPanel extends React.Component<Props> {
       className,
       expandedClass,
       isExpanded,
+      expanded,
       addPanel,
       ...rest
     } = this.props;

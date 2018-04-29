@@ -41,7 +41,7 @@ describe('AccordionPanel', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('addPanel on mount', () => {
+  test('addPanel', () => {
     const wrapper = mount(
       <AccordionPanel
         id="panel-1"
@@ -51,8 +51,28 @@ describe('AccordionPanel', () => {
       </AccordionPanel>,
     );
     expect(mockAddPanel).toHaveBeenCalledTimes(1);
-    expect(mockAddPanel).toHaveBeenCalledWith('panel-1', {
-      current: wrapper.find('dd').first().instance(),
-    });
+    expect(mockAddPanel).toHaveBeenCalledWith(
+      'panel-1',
+      { current: wrapper.find('dd').first().instance() },
+      undefined,
+    );
+  });
+
+  test('addPanel initiallyExpanded', () => {
+    const wrapper = mount(
+      <AccordionPanel
+        id="panel-1"
+        addPanel={mockAddPanel}
+        expanded
+      >
+        Panel 1
+      </AccordionPanel>,
+    );
+    expect(mockAddPanel).toHaveBeenCalledTimes(1);
+    expect(mockAddPanel).toHaveBeenCalledWith(
+      'panel-1',
+      { current: wrapper.find('dd').first().instance() },
+      true,
+    );
   });
 });
