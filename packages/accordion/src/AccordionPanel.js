@@ -1,5 +1,5 @@
 // @flow
-import * as React from 'react';
+import React, { Component } from 'react';
 
 type Props = {
   /** @public */
@@ -8,7 +8,6 @@ type Props = {
   expandedClass?: string,
   /** @public */
   expanded?: boolean,
-  children: string | React.Node,
   addPanel: (
     id: string,
     ref: { current: null | HTMLElement },
@@ -18,7 +17,7 @@ type Props = {
   isExpanded?: boolean,
 };
 
-class AccordionPanel extends React.Component<Props> {
+class AccordionPanel extends Component<Props> {
   static defaultProps = {
     expandedClass: 'is-expanded',
   }

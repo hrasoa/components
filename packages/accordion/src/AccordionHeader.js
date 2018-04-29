@@ -1,10 +1,9 @@
 // @flow
-import * as React from 'react';
+import React, { Component } from 'react';
 
 type Props = {
   /** @public */
   controls: string,
-  children: string | React.Node,
   togglePanel: (panelId: string) => void,
   'aria-level'?: string,
   isDisabled?: boolean,
@@ -12,7 +11,7 @@ type Props = {
   isFocused?: boolean,
 };
 
-class AccordionHeader extends React.Component<Props> {
+class AccordionHeader extends Component<Props> {
   static defaultProps = {
     'aria-level': '3',
   }

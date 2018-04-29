@@ -1,10 +1,8 @@
 // @flow
-import * as React from 'react';
+import React from 'react';
 
 type Props = {
-  children: string | React.Node,
   handleKeyNavigation: (e: SyntheticKeyboardEventElement<HTMLElement>) => void,
-  className?: ?string,
 };
 
 const Accordion = (props: Props) => {
@@ -19,10 +17,6 @@ const Accordion = (props: Props) => {
       {...rest}
     />
   );
-};
-
-Accordion.defaultProps = {
-  className: null,
 };
 
 export default Accordion;
