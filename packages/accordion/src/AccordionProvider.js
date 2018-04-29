@@ -22,10 +22,6 @@ class AccordionProvider extends React.Component<Props, State> {
     className: null,
   };
 
-  static getDerivedStateFromProps(nextProps: {}, prevState: {}) {
-    return prevState;
-  }
-
   constructor(props: Props) {
     super(props);
     this.state = {

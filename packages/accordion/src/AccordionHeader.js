@@ -34,8 +34,6 @@ class AccordionHeader extends React.Component<Props> {
     this.props.togglePanel(this.props.controls);
   }
 
-  onTogglePanel: Function;
-
   ref: { current: null | HTMLButtonElement } = React.createRef();
 
   render() {
