@@ -41,15 +41,8 @@ class AccordionProvider extends Component<Props, State> {
   componentDidUpdate(prevProps: Props, prevState: State) {
     const { expandedId, expandedStates } = this.state;
     if (this.props.onChange && (
-      (
-        this.allowMultiple &&
-        Object.keys(prevState.expandedStates).length &&
-        prevState.expandedStates !== expandedStates) ||
-      (
-        !this.allowMultiple &&
-        prevState.expandedId &&
-        prevState.expandedId !== expandedId
-      )
+      prevState.expandedStates !== expandedStates ||
+      prevState.expandedId !== expandedId
     )) {
       this.props.onChange(this.allowMultiple ? expandedStates : expandedId);
     }
