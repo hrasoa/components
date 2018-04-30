@@ -7,7 +7,7 @@ const { Provider, Consumer } = React.createContext();
 type Props = {
   children: Node,
   /** @public */
-  onChange?: Function,
+  onChange?: (?string | { [panelId: string]: boolean }) => void | any,
   /** @public */
   allowMultiple?: boolean,
   /** @public */
