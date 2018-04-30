@@ -17,5 +17,8 @@
   "homepage": "https://github.com/hrasoa/components#readme",
   "devDependencies": {
     "react-docgen": "^v3.0.0-beta12"
+  },
+  "peerDependencies": {
+    "react": "^16.3.0"
   }
 }

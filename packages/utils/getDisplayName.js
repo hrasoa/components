@@ -1,2 +1,7 @@
-export default WrappedComponent =>
-  WrappedComponent.displayName || WrappedComponent.name || 'Component';
+// @flow
+import type { ComponentType } from 'react';
+
+export default (WrappedComponent: ComponentType<any>): string =>
+  WrappedComponent.displayName ||
+  WrappedComponent.name ||
+  'Component';
