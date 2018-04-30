@@ -95,20 +95,21 @@ class AccordionProvider extends Component<Props, State> {
     }));
   }
 
-  openAll = (): void => {
-    if (!this.allowMultiple) return;
+  toggleAllPanel(open: boolean): void {
     this.setState(prevState => ({
       expandedStates: Object.keys(prevState.expandedStates)
-        .reduce((acc, panelId) => ({ ...acc, [panelId]: true }), {}),
+        .reduce((acc, panelId) => ({ ...acc, [panelId]: open }), {}),
     }));
+  }
+
+  openAll = (): void => {
+    if (!this.allowMultiple) return;
+    this.toggleAllPanel(true);
   }
 
   closeAll = (): void => {
     if (!this.allowMultiple) return;
-    this.setState(prevState => ({
-      expandedStates: Object.keys(prevState.expandedStates)
-        .reduce((acc, panelId) => ({ ...acc, [panelId]: false }), {}),
-    }));
+    this.toggleAllPanel(false);
   }
 
   handleKeyNavigation = (e: SyntheticKeyboardEventElement<HTMLElement>): void => {
