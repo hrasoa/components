@@ -19,4 +19,6 @@ const Accordion = (props: Props) => {
   );
 };
 
+Accordion.displayName = 'Accordion';
+
 export default Accordion;

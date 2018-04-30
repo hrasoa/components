@@ -46,7 +46,7 @@ import {
 
 
 
-### `<undefined>`
+### `<Accordion>`
 
 
 
