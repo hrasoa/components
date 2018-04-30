@@ -7,7 +7,7 @@ const generateMarkdown = require('../generateMarkdown');
 
 const md = fs.createWriteStream(resolve('README.md'));
 const pkg = require(resolve('package.json'));
-const docgenJson = require(resolve('docgen.js'));
+const docgenJson = require(resolve('docs/docgen.js'));
 const usage = readFile('docs/USAGE.md');
 
 md.write(`# ${pkg.name}`);
