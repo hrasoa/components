@@ -21,7 +21,7 @@ class AccordionHeader extends Component<Props> {
     }
   }
 
-  onTogglePanel = (): void => {
+  handleTogglePanel = (): void => {
     this.props.togglePanel(this.props.controls);
   }
 
@@ -48,7 +48,7 @@ class AccordionHeader extends Component<Props> {
           aria-expanded={isExpanded}
           type="button"
           ref={this.ref}
-          onClick={this.onTogglePanel}
+          onClick={this.handleTogglePanel}
           {...rest}
         />
       </dt>
