@@ -97,16 +97,18 @@ class AccordionProvider extends Component<Props, State> {
 
   openAll = (): void => {
     if (!this.allowMultiple) return;
-    this.setState({
-      expandedStates: this.panelIds.reduce((acc, panelId) => ({ ...acc, [panelId]: true }), {}),
-    });
+    this.setState(prevState => ({
+      expandedStates: Object.keys(prevState.expandedStates)
+        .reduce((acc, panelId) => ({ ...acc, [panelId]: true }), {}),
+    }));
   }
 
   closeAll = (): void => {
     if (!this.allowMultiple) return;
-    this.setState({
-      expandedStates: this.panelIds.reduce((acc, panelId) => ({ ...acc, [panelId]: false }), {}),
-    });
+    this.setState(prevState => ({
+      expandedStates: Object.keys(prevState.expandedStates)
+        .reduce((acc, panelId) => ({ ...acc, [panelId]: false }), {}),
+    }));
   }
 
   handleKeyNavigation = (e: SyntheticKeyboardEventElement<HTMLElement>): void => {
