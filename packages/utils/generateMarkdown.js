@@ -45,6 +45,7 @@ function generateProps(props) {
 }
 
 function generateMarkdown(componentInfo) {
+  console.log(componentInfo);
   const markdownString = [
     generateTitle(componentInfo.displayName),
     componentInfo.description,

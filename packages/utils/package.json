@@ -16,6 +16,6 @@
   },
   "homepage": "https://github.com/hrasoa/components#readme",
   "devDependencies": {
-    "react-docgen": "^2.20.1"
+    "react-docgen": "^v3.0.0-beta12"
   }
 }
