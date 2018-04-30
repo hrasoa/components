@@ -2,11 +2,8 @@
 import React, { Component } from 'react';
 
 type Props = {
-  /** @public */
   id: string,
-  /** @public */
   expandedClass?: string,
-  /** @public */
   expanded?: boolean,
   addPanel: (
     id: string,

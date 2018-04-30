@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 
 type Props = {
-  /** @public */
   controls: string,
   togglePanel: (panelId: string) => void,
   'aria-level'?: string,
