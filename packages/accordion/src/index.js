@@ -11,16 +11,16 @@ const Accordion = withAccordion(({ handleKeyNavigation }) => ({
   handleKeyNavigation,
 }))(BaseAccordion);
 
-const AccordionHeader = withAccordion((value, { controls }: { controls: string }) => ({
-  togglePanel: value.togglePanel,
-  isExpanded: value.isExpanded(controls),
-  isDisabled: value.isDisabled(controls),
-  isFocused: value.isFocused(controls),
+const AccordionHeader = withAccordion((providerValue, { controls }: { controls: string }) => ({
+  togglePanel: providerValue.togglePanel,
+  isExpanded: providerValue.isExpanded(controls),
+  isDisabled: providerValue.isDisabled(controls),
+  isFocused: providerValue.isFocused(controls),
 }))(BaseAccordionHeader);
 
-const AccordionPanel = withAccordion((value, { id }: { id: string }) => ({
-  addPanel: value.addPanel,
-  isExpanded: value.isExpanded(id),
+const AccordionPanel = withAccordion((providerValue, { id }: { id: string }) => ({
+  addPanel: providerValue.addPanel,
+  isExpanded: providerValue.isExpanded(id),
 }))(BaseAccordionPanel);
 
 export {
