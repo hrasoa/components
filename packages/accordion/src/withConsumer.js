@@ -9,6 +9,8 @@ type ProviderValue = {
   togglePanel: (id: string) => void,
   addPanel: (id: string) => void,
   handleKeyNavigation: (e: SyntheticKeyboardEventElement<HTMLElement>) => void,
+  openAll: () => void,
+  closeAll: () => void,
 };
 
 type PropsInput = any;

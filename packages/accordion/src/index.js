@@ -7,20 +7,20 @@ import withConsumer from './withConsumer';
 
 const withAccordion = withConsumer.bind(null, Consumer);
 
-const Accordion = withAccordion(value => ({
-  handleKeyNavigation: value.handleKeyNavigation,
+const Accordion = withAccordion(({ handleKeyNavigation }) => ({
+  handleKeyNavigation,
 }))(BaseAccordion);
 
-const AccordionHeader = withAccordion((value, ownProps: { controls: string }) => ({
-  isExpanded: value.isExpanded(ownProps.controls),
-  isDisabled: value.isDisabled(ownProps.controls),
-  isFocused: value.isFocused(ownProps.controls),
+const AccordionHeader = withAccordion((value, { controls }: { controls: string }) => ({
   togglePanel: value.togglePanel,
+  isExpanded: value.isExpanded(controls),
+  isDisabled: value.isDisabled(controls),
+  isFocused: value.isFocused(controls),
 }))(BaseAccordionHeader);
 
-const AccordionPanel = withAccordion((value, ownProps: { id: string }) => ({
+const AccordionPanel = withAccordion((value, { id }: { id: string }) => ({
   addPanel: value.addPanel,
-  isExpanded: value.isExpanded(ownProps.id),
+  isExpanded: value.isExpanded(id),
 }))(BaseAccordionPanel);
 
 export {

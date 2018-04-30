@@ -6,6 +6,7 @@ const { Provider, Consumer } = React.createContext();
 
 type Props = {
   children: Node,
+  /** @public */
   onChange?: Function,
   /** @public */
   allowMultiple?: boolean,
@@ -97,6 +98,20 @@ class AccordionProvider extends Component<Props, State> {
     }));
   }
 
+  openAll = (): void => {
+    if (!this.allowMultiple) return;
+    this.setState({
+      expandedStates: this.panelIds.reduce((acc, panelId) => ({ ...acc, [panelId]: true }), {}),
+    });
+  }
+
+  closeAll = (): void => {
+    if (!this.allowMultiple) return;
+    this.setState({
+      expandedStates: this.panelIds.reduce((acc, panelId) => ({ ...acc, [panelId]: false }), {}),
+    });
+  }
+
   handleKeyNavigation = (e: SyntheticKeyboardEventElement<HTMLElement>): void => {
     const key = e.which.toString();
     // 33 = Page Up, 34 = Page Down
@@ -169,6 +184,8 @@ class AccordionProvider extends Component<Props, State> {
           togglePanel: this.togglePanel,
           addPanel: this.addPanel,
           handleKeyNavigation: this.handleKeyNavigation,
+          openAll: this.openAll,
+          closeAll: this.closeAll,
         }}
       >
         {this.props.children}
