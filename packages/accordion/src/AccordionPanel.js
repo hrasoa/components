@@ -77,8 +77,8 @@ function getClassName({ className, expandedClass, isExpanded }): ?string {
   const name = [
     className || '',
     isExpanded ? expandedClass : '',
-  ].join(' ');
-  return name.length ? name.trim() : null;
+  ].join(' ').trim();
+  return name.length ? name : null;
 }
 
 export default AccordionPanel;
