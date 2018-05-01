@@ -13,6 +13,7 @@ type Props = {
   ) => void,
   className?: ?string,
   isExpanded?: boolean,
+  disableInnert?: boolean,
 };
 
 class AccordionPanel extends Component<Props> {
@@ -27,7 +28,7 @@ class AccordionPanel extends Component<Props> {
   }
 
   componentDidMount() {
-    if (this.ref.current) {
+    if (this.ref.current && !this.props.disableInnert) {
       this.handleInnert = this.props.isExpanded ? null : disabled({
         context: this.ref.current,
       });
@@ -39,6 +40,8 @@ class AccordionPanel extends Component<Props> {
   }
 
   componentDidUpdate() {
+    if (this.props.disableInnert) return;
+
     if (this.props.isExpanded && this.handleInnert) {
       this.handleInnert.disengage();
     } else if (this.ref.current) {
@@ -49,7 +52,10 @@ class AccordionPanel extends Component<Props> {
   }
 
   componentWillUnmount() {
-    this.handleInnert = null;
+    if (this.handleInnert) {
+      this.handleInnert.disengage();
+      this.handleInnert = null;
+    }
   }
 
   handleInnert: null | { disengage: () => void };
