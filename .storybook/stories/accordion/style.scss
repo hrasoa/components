@@ -1,18 +1,21 @@
 .accordion {
-  &.is-touched > dd {
-    transition: max-height .2s;
-  }
-
   dt [aria-expanded="true"] {
     font-weight: bold;
   }
 
+  &.is-touched > dd {
+    display: block;
+    transition: max-height .2s;
+  }
+
   dd {
+    display: none;
     max-height: 0;
     overflow: hidden;
 
     &.is-expanded {
-      max-height: 999px;     
+      display: block;
+      max-height: 999px;
     }
   }
 }
