@@ -7,8 +7,9 @@ import withConsumer from './withConsumer';
 
 const withAccordion = withConsumer.bind(null, Consumer);
 
-const Accordion = withAccordion(({ handleKeyNavigation }) => ({
+const Accordion = withAccordion(({ handleKeyNavigation, isInteractive }) => ({
   handleKeyNavigation,
+  isInteractive,
 }))(BaseAccordion);
 
 const AccordionHeader = withAccordion((providerValue, { controls }: { controls: string }) => ({
@@ -21,7 +22,6 @@ const AccordionHeader = withAccordion((providerValue, { controls }: { controls: 
 const AccordionPanel = withAccordion((providerValue, { id }: { id: string }) => ({
   addPanel: providerValue.addPanel,
   isExpanded: providerValue.isExpanded(id),
-  isInteractive: providerValue.isInteractive,
 }))(BaseAccordionPanel);
 
 export {

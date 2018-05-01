@@ -1,4 +1,8 @@
 .accordion {
+  &.is-interactive dd {
+    transition: max-height .2s;
+  }
+
   dt [aria-expanded="true"] {
     font-weight: bold;
   }
@@ -6,10 +10,6 @@
   dd {
     max-height: 0;
     overflow: hidden;
-    
-    &.is-interactive {
-      transition: max-height .2s;
-    }
 
     &.is-expanded {
       max-height: 99px;     

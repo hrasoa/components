@@ -13,7 +13,6 @@ type Props = {
   ) => void,
   className?: string,
   isExpanded?: boolean,
-  isInteractive?: boolean,
 };
 
 class AccordionPanel extends Component<Props> {
@@ -62,7 +61,6 @@ class AccordionPanel extends Component<Props> {
       isExpanded,
       expanded,
       addPanel,
-      isInteractive,
       ...rest
     } = this.props;
     return (
@@ -75,16 +73,10 @@ class AccordionPanel extends Component<Props> {
   }
 }
 
-function getClassName({
-  className,
-  expandedClass,
-  isExpanded,
-  isInteractive,
-}): ?string {
+function getClassName({ className, expandedClass, isExpanded }): ?string {
   const name = [
     className || '',
     isExpanded ? expandedClass : '',
-    isInteractive ? 'is-interactive' : '',
   ].join(' ').trim();
   return name.length ? name : null;
 }
