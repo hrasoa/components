@@ -1,5 +1,5 @@
 .accordion {
-  &.is-touched dd {
+  &.is-touched > dd {
     transition: max-height .2s;
   }
 
