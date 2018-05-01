@@ -15,7 +15,7 @@ type State = {
   expandedId: ?string,
   expandedStates: { [panelId: string]: boolean },
   focusedId: ?string,
-  isInteractive: boolean,
+  isTouched: boolean,
 };
 
 class AccordionProvider extends Component<Props, State> {
@@ -31,7 +31,7 @@ class AccordionProvider extends Component<Props, State> {
       expandedId: null,
       expandedStates: {},
       focusedId: null,
-      isInteractive: false,
+      isTouched: false,
     };
     this.panels = {};
     this.panelIds = [];
@@ -88,7 +88,7 @@ class AccordionProvider extends Component<Props, State> {
     if (!this.panels[panelId]) return;
 
     this.setState(prevState => ({
-      isInteractive: true,
+      isTouched: true,
       expandedId: this.props.allowToggle && prevState.expandedId === panelId ? null : panelId,
       expandedStates: {
         ...prevState.expandedStates,
@@ -189,7 +189,7 @@ class AccordionProvider extends Component<Props, State> {
           handleKeyNavigation: this.handleKeyNavigation,
           openAll: this.openAll,
           closeAll: this.closeAll,
-          isInteractive: this.state.isInteractive,
+          isTouched: this.state.isTouched,
         }}
       >
         {this.props.children}

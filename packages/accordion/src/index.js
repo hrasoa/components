@@ -7,9 +7,9 @@ import withConsumer from './withConsumer';
 
 const withAccordion = withConsumer.bind(null, Consumer);
 
-const Accordion = withAccordion(({ handleKeyNavigation, isInteractive }) => ({
+const Accordion = withAccordion(({ handleKeyNavigation, isTouched }) => ({
   handleKeyNavigation,
-  isInteractive,
+  isTouched,
 }))(BaseAccordion);
 
 const AccordionHeader = withAccordion((providerValue, { controls }: { controls: string }) => ({

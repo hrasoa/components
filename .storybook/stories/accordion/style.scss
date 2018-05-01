@@ -1,5 +1,5 @@
 .accordion {
-  &.is-interactive dd {
+  &.is-touched dd {
     transition: max-height .2s;
   }
 

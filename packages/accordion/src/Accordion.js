@@ -3,7 +3,7 @@ import React from 'react';
 
 type Props = {
   handleKeyNavigation: (e: SyntheticKeyboardEventElement<HTMLElement>) => void,
-  isInteractive?: boolean,
+  isTouched?: boolean,
   className?: ?string,
 };
 
@@ -11,13 +11,13 @@ const Accordion = (props: Props) => {
   const {
     handleKeyNavigation,
     className,
-    isInteractive,
+    isTouched,
     ...rest
   } = props;
   return (
     <dl
       role="presentation"
-      className={getClassName(className, isInteractive)}
+      className={getClassName(className, isTouched)}
       onKeyDown={props.handleKeyNavigation}
       {...rest}
     />
@@ -26,15 +26,15 @@ const Accordion = (props: Props) => {
 
 Accordion.defaultProps = {
   className: null,
-  isInteractive: false,
+  isTouched: false,
 };
 
 Accordion.displayName = 'Accordion';
 
-function getClassName(className, isInteractive): ?string {
+function getClassName(className, isTouched): ?string {
   const name = [
     className || '',
-    isInteractive ? 'is-interactive' : '',
+    isTouched ? 'is-touched' : '',
   ].join(' ').trim();
   return name.length ? name : null;
 }

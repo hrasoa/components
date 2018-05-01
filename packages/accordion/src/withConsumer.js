@@ -11,7 +11,7 @@ type ProviderValue = {
   handleKeyNavigation: (e: SyntheticKeyboardEventElement<HTMLElement>) => void,
   openAll: () => void,
   closeAll: () => void,
-  isInteractive: boolean,
+  isTouched: boolean,
 };
 
 type PropsInput = any;
