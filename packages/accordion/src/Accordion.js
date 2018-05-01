@@ -19,8 +19,8 @@ const Accordion = (props: Props) => {
   return (
     <dl
       role="presentation"
-      className={getClassName(props)}
-      onKeyDown={props.handleKeyNavigation}
+      className={getClassName(className, isTouched, touchedClass)}
+      onKeyDown={handleKeyNavigation}
       {...rest}
     />
   );
@@ -34,7 +34,7 @@ Accordion.defaultProps = {
 
 Accordion.displayName = 'Accordion';
 
-function getClassName({ className, isTouched, touchedClass }): ?string {
+function getClassName(className, isTouched, touchedClass): ?string {
   const name = [
     className || '',
     isTouched ? touchedClass : '',
