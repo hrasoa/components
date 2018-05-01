@@ -4,6 +4,8 @@ import renderer from 'react-test-renderer';
 import { mount } from 'enzyme';
 import AccordionPanel from '../src/AccordionPanel';
 
+jest.mock('ally.js/maintain/disabled');
+
 const mockAddPanel = jest.fn();
 
 beforeEach(() => {

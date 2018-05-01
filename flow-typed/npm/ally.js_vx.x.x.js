@@ -743,7 +743,7 @@ declare module 'ally.js/esm/maintain/_maintain' {
 }
 
 declare module 'ally.js/esm/maintain/disabled' {
-  declare export default function disabled({ context: string | HTMLElement }): { disengage: () => void };
+  declare module.exports: any;
 }
 
 declare module 'ally.js/esm/maintain/hidden' {
@@ -1267,7 +1267,7 @@ declare module 'ally.js/maintain/_maintain' {
 }
 
 declare module 'ally.js/maintain/disabled' {
-  declare module.exports: any;
+  declare export default function disabled({ context: string | HTMLElement }): { disengage: () => void };
 }
 
 declare module 'ally.js/maintain/hidden' {

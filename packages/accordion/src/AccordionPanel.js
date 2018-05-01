@@ -1,6 +1,6 @@
 // @flow
 import React, { Component } from 'react';
-import disabled from 'ally.js/esm/maintain/disabled';
+import disabled from 'ally.js/maintain/disabled';
 
 type Props = {
   id: string,
