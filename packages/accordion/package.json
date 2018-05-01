@@ -14,7 +14,8 @@
   },
   "homepage": "https://github.com/hrasoa/components#readme",
   "dependencies": {
-    "@hrasoa/components-utils": "*"
+    "@hrasoa/components-utils": "*",
+    "ally.js": "^1.4.1"
   },
   "peerDependencies": {
     "react": "^16.3.0"

@@ -3,7 +3,14 @@
     font-weight: bold;
   }
 
-  dd:not(.is-expanded) {
-    display: none;
+  dd {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .2s;
+
+    &.is-expanded {
+      max-height: 99px;
+      transition: max-height 2s;
+    }
   }
 }

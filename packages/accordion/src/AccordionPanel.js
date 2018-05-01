@@ -1,5 +1,6 @@
 // @flow
 import React, { Component } from 'react';
+import disabled from 'ally.js/esm/maintain/disabled';
 
 type Props = {
   id: string,
@@ -21,12 +22,35 @@ class AccordionPanel extends Component<Props> {
 
   constructor(props: Props) {
     super(props);
+    this.handleInnert = null;
     this.props.addPanel(this.props.id, this.ref, this.props.expanded);
+  }
+
+  componentDidMount() {
+    this.handleInnert = this.props.isExpanded ? null : disabled({
+      context: this.ref.current,
+    });
   }
 
   shouldComponentUpdate(nextProps: Props) {
     return this.props.isExpanded !== nextProps.isExpanded;
   }
+
+  componentDidUpdate() {
+    if (this.props.isExpanded && this.handleInnert) {
+      this.handleInnert.disengage();
+    } else {
+      this.handleInnert = disabled({
+        context: this.ref.current,
+      });
+    }
+  }
+
+  componentWillUnmount() {
+    this.handleInnert = null;
+  }
+
+  handleInnert: null | { disengage: Function };
 
   ref: { current: null | HTMLElement } = React.createRef();
 
