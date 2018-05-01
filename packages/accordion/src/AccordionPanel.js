@@ -73,8 +73,11 @@ class AccordionPanel extends Component<Props> {
   }
 }
 
-function getClassName({ className, expandedClass, isExpanded }): string | null {
-  const name = `${className || ''}${isExpanded ? ` ${expandedClass || ''}` : ''}`;
+function getClassName({ className, expandedClass, isExpanded }): ?string {
+  const name = [
+    className || '',
+    isExpanded ? expandedClass : '',
+  ].join(' ');
   return name.length ? name.trim() : null;
 }
 
