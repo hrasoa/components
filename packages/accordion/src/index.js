@@ -19,9 +19,9 @@ const AccordionHeader = withAccordion((providerValue, { controls }: { controls: 
   isFocused: providerValue.isFocused(controls),
 }))(BaseAccordionHeader);
 
-const AccordionPanel = withAccordion((providerValue, { id }: { id: string }) => ({
-  addPanel: providerValue.addPanel,
-  isExpanded: providerValue.isExpanded(id),
+const AccordionPanel = withAccordion(({ addPanel, isExpanded }, { id }: { id: string }) => ({
+  addPanel,
+  isExpanded: isExpanded(id),
 }))(BaseAccordionPanel);
 
 export {
