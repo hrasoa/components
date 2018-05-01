@@ -27,9 +27,11 @@ class AccordionPanel extends Component<Props> {
   }
 
   componentDidMount() {
-    this.handleInnert = this.props.isExpanded ? null : disabled({
-      context: this.ref.current,
-    });
+    if (this.ref.current) {
+      this.handleInnert = this.props.isExpanded ? null : disabled({
+        context: this.ref.current,
+      });
+    }
   }
 
   shouldComponentUpdate(nextProps: Props) {
@@ -39,7 +41,7 @@ class AccordionPanel extends Component<Props> {
   componentDidUpdate() {
     if (this.props.isExpanded && this.handleInnert) {
       this.handleInnert.disengage();
-    } else {
+    } else if (this.ref.current) {
       this.handleInnert = disabled({
         context: this.ref.current,
       });
@@ -50,7 +52,7 @@ class AccordionPanel extends Component<Props> {
     this.handleInnert = null;
   }
 
-  handleInnert: null | { disengage: Function };
+  handleInnert: null | { disengage: () => void };
 
   ref: { current: null | HTMLElement } = React.createRef();
 
