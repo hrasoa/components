@@ -1,6 +1,14 @@
 // @flow
 import React, { Component } from 'react';
 import type { Node } from 'react';
+import {
+  up,
+  down,
+  home,
+  end,
+  pageUp,
+  pageDown,
+} from 'ally.js/map/keycode';
 
 const { Provider, Consumer } = React.createContext();
 
@@ -118,8 +126,7 @@ class AccordionProvider extends Component<Props, State> {
 
   handleKeyNavigation = (e: SyntheticKeyboardEventElement<HTMLElement>): void => {
     const key = e.which.toString();
-    // 33 = Page Up, 34 = Page Down
-    const ctrlModifier = (e.ctrlKey && key.match(/33|34/));
+    const ctrlModifier = (e.ctrlKey && key.match(new RegExp(`${pageUp}|${pageDown}`)));
     const count = this.panelIds.length;
     const index = this.panelIds.indexOf(e.target.getAttribute('aria-controls'));
     if (index < 0) {
@@ -140,22 +147,21 @@ class AccordionProvider extends Component<Props, State> {
       }
       return;
     }
-    // 38 = Up, 40 = Down
-    if (key.match(/38|40/) || ctrlModifier) {
-      const direction = (key.match(/34|40/)) ? 1 : -1;
+
+    if (key.match(new RegExp(`${up}|${down}`)) || ctrlModifier) {
+      const direction = (key.match(new RegExp(`${pageDown}|${down}`))) ? 1 : -1;
       this.setState({
         focusedId: this.panelIds[(index + count + direction) % count],
       });
       e.preventDefault();
-    } else if (key.match(/35|36/)) {
-      // 35 = End, 36 = Home keyboard operations
-      switch (key) {
+    } else if (key.match(new RegExp(`${home}|${end}`))) {
+      switch (parseInt(key, 10)) {
         // Go to first accordion
-        case '36':
+        case home:
           this.setState({ focusedId: this.panelIds[0] });
           break;
           // Go to last accordion
-        case '35':
+        case end:
           this.setState({ focusedId: this.panelIds[count - 1] });
           break;
         default:
