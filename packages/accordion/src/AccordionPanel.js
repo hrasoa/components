@@ -73,7 +73,7 @@ class AccordionPanel extends Component<Props> {
     } = this.props;
     return (
       <dd
-        className={getClassName(this.props)}
+        className={getClassName(className, expandedClass, isExpanded)}
         ref={this.ref}
         {...rest}
       />
@@ -81,7 +81,7 @@ class AccordionPanel extends Component<Props> {
   }
 }
 
-function getClassName({ className, expandedClass, isExpanded }): ?string {
+function getClassName(className, expandedClass, isExpanded): ?string {
   const name = [
     className || '',
     isExpanded ? expandedClass : '',
