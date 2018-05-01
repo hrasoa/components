@@ -155,7 +155,7 @@ class AccordionProvider extends Component<Props, State> {
       });
       e.preventDefault();
     } else if (key.match(new RegExp(`${home}|${end}`))) {
-      switch (parseInt(key, 10)) {
+      switch (e.which) {
         // Go to first accordion
         case home:
           this.setState({ focusedId: this.panelIds[0] });

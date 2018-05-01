@@ -1287,7 +1287,14 @@ declare module 'ally.js/map/attribute' {
 }
 
 declare module 'ally.js/map/keycode' {
-  declare module.exports: any;
+  declare module.exports: {
+    up: number,
+    down: number,
+    home: number,
+    end: number,
+    pageUp: number,
+    pageDown: number,
+  };
 }
 
 declare module 'ally.js/observe/_observe' {
