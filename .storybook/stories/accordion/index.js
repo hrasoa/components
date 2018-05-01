@@ -5,6 +5,6 @@ import Accordion from './Accordion';
 
 storiesOf('Accordion', module)
   .addDecorator(checkA11y)
-  .add('always single panel opened', () => <Accordion />)
-  .add('allow toggle panel', () => <Accordion allowToggle />)
-  .add('allow multi-selectable panel', () => <Accordion allowMultiple />);
+  .add('Minimal', () => <Accordion />)
+  .add('Allow toggle', () => <Accordion allowToggle />)
+  .add('Allow multi-selectable', () => <Accordion allowMultiple />);

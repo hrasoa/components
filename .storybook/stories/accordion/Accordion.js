@@ -11,53 +11,77 @@ import './style.scss';
 
 type Props = {
   renderHeader?: (i: number) => string | Node,
+  renderPanel?: (i: number) => string | Node,
   className?: string,
   allowTogle?: boolean,
   allowMultiple?: boolean,
   expandedIds?: Array<string>,
+  id?: string,
 };
 
-const getItems = (expandedIds, renderHeader) => {
+const getItems = (id = 'minimal', expandedIds, renderHeader, renderPanel) => {
   let items = [];
   for (let i = 0; i <= 2; i += 1) {
     items = [
       ...items,
       <AccordionHeader
-        key={`header-${i}`}
-        id={`header-${i}`}
-        controls={`panel-${i}`}
+        key={`${id}-header-${i}`}
+        id={`${id}-header-${i}`}
+        controls={`${id}-panel-${i}`}
       >
         {renderHeader && renderHeader(i)}
       </AccordionHeader>,
       <AccordionPanel
-        key={`panel-${i}`}
-        id={`panel-${i}`}
+        key={`${id}-panel-${i}`}
+        id={`${id}-panel-${i}`}
         expanded={!!(expandedIds && expandedIds.indexOf(`panel-${i}`) >= 0)}
       >
-        <ul>
-          <li><label htmlFor={`input-${i}-0`}>Label <input id={`input-${i}-0`} /></label></li>
-          <li><label htmlFor={`input-${i}-1`}>Label <input id={`input-${i}-1`} /></label></li>
-        </ul>
+        {renderPanel && renderPanel(i)}
       </AccordionPanel>,
     ];
   }
   return items;
 };
 
-const AccordionTest = ({ expandedIds, renderHeader, ...props }: Props) => (
-  <AccordionProvider {...props}>
-    <Accordion className="accordion">
-      {getItems(expandedIds, renderHeader)}
+const AccordionMinimal = ({
+  id,
+  expandedIds,
+  renderHeader,
+  renderPanel,
+  ...props
+}: Props) => (
+  <AccordionProvider
+    {...props}
+  >
+    <Accordion
+      className="accordion"
+    >
+      {getItems(id, expandedIds, renderHeader, renderPanel)}
     </Accordion>
   </AccordionProvider>
 );
 
-AccordionTest.defaultProps = {
+AccordionMinimal.defaultProps = {
   className: null,
   allowMultiple: false,
   allowTogle: false,
   expandedIds: null,
-  renderHeader: i => `Header ${i + 1}`,
+  renderHeader: (i: number): string => `Header ${i + 1}`,
+  renderPanel: (i: number): Node => (
+    <ul>
+      <li>
+        <label htmlFor={`input-${i}-0`}>
+          Label <input id={`input-${i}-0`} />
+        </label>
+      </li>
+      <li>
+        <label htmlFor={`input-${i}-1`}>
+          Label <input id={`input-${i}-1`} />
+        </label>
+      </li>
+    </ul>
+  ),
+  id: 'minimal',
 };
 
-export default AccordionTest;
+export default AccordionMinimal;
