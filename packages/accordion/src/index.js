@@ -21,6 +21,7 @@ const AccordionHeader = withAccordion((providerValue, { controls }: { controls: 
 const AccordionPanel = withAccordion((providerValue, { id }: { id: string }) => ({
   addPanel: providerValue.addPanel,
   isExpanded: providerValue.isExpanded(id),
+  isInteractive: providerValue.isInteractive,
 }))(BaseAccordionPanel);
 
 export {

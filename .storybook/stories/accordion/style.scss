@@ -6,11 +6,13 @@
   dd {
     max-height: 0;
     overflow: hidden;
-    transition: max-height .2s;
+    
+    &.is-interactive {
+      transition: max-height .2s;
+    }
 
     &.is-expanded {
-      max-height: 99px;
-      transition: max-height 2s;
+      max-height: 99px;     
     }
   }
 }
