@@ -13,6 +13,7 @@ const Accordion = (props: Props) => {
     handleKeyNavigation,
     className,
     isTouched,
+    touchedClass,
     ...rest
   } = props;
   return (
