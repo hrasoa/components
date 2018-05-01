@@ -10,8 +10,8 @@ import {
 import './style.scss';
 
 type Props = {
-  renderHeader?: (i: number) => string | Node,
-  renderPanel?: (i: number) => string | Node,
+  renderHeader?: (i: number, id: string) => string | Node,
+  renderPanel?: (i: number, id: string) => string | Node,
   className?: string,
   allowTogle?: boolean,
   allowMultiple?: boolean,
@@ -29,14 +29,14 @@ const getItems = (id = 'minimal', expandedIds, renderHeader, renderPanel) => {
         id={`${id}-header-${i}`}
         controls={`${id}-panel-${i}`}
       >
-        {renderHeader && renderHeader(i)}
+        {renderHeader && renderHeader(i, id)}
       </AccordionHeader>,
       <AccordionPanel
         key={`${id}-panel-${i}`}
         id={`${id}-panel-${i}`}
         expanded={!!(expandedIds && expandedIds.indexOf(`panel-${i}`) >= 0)}
       >
-        {renderPanel && renderPanel(i)}
+        {renderPanel && renderPanel(i, id)}
       </AccordionPanel>,
     ];
   }
@@ -67,16 +67,16 @@ AccordionMinimal.defaultProps = {
   allowTogle: false,
   expandedIds: null,
   renderHeader: (i: number): string => `Header ${i + 1}`,
-  renderPanel: (i: number): Node => (
+  renderPanel: (i: number, id: string): Node => (
     <ul>
       <li>
-        <label htmlFor={`input-${i}-0`}>
-          Label <input id={`input-${i}-0`} />
+        <label htmlFor={`${id}-input-${i}-0`}>
+          Label <input id={`${id}-input-${i}-0`} />
         </label>
       </li>
       <li>
-        <label htmlFor={`input-${i}-1`}>
-          Label <input id={`input-${i}-1`} />
+        <label htmlFor={`${id}-input-${i}-1`}>
+          Label <input id={`${id}-input-${i}-1`} />
         </label>
       </li>
     </ul>
