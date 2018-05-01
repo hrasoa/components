@@ -11,7 +11,7 @@ type Props = {
     ref: { current: null | HTMLElement },
     isInitiallyExpanded: ?boolean,
   ) => void,
-  className?: string,
+  className?: ?string,
   isExpanded?: boolean,
 };
 
