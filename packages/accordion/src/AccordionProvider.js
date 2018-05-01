@@ -100,6 +100,7 @@ class AccordionProvider extends Component<Props, State> {
 
   toggleAllPanel(open: boolean): void {
     this.setState(prevState => ({
+      isTouched: true,
       expandedStates: Object.keys(prevState.expandedStates)
         .reduce((acc, panelId) => ({ ...acc, [panelId]: open }), {}),
     }));
