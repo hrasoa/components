@@ -6,11 +6,7 @@ type Props = {
   id: string,
   expandedClass?: string,
   expanded?: boolean,
-  addPanel: (
-    id: string,
-    ref: PanelRef,
-    isInitiallyExpanded: ?boolean,
-  ) => void,
+  addPanel: $PropertyType<ProviderValue, 'addPanel'>,
   className?: ?string,
   isExpanded?: boolean,
   disableInnert?: boolean,
@@ -25,7 +21,7 @@ class AccordionPanel extends Component<Props> {
     super(props);
     this.handleInnert = null;
     this.ref = React.createRef();
-    this.props.addPanel(this.props.id, this.ref, this.props.expanded);
+    this.props.addPanel(this.props.id, this.ref, !!this.props.expanded);
   }
 
   componentDidMount() {

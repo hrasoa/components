@@ -2,8 +2,8 @@
 import React from 'react';
 
 type Props = {
-  handleKeyNavigation: (e: SyntheticKeyboardEventElement<HTMLElement>) => void,
-  isTouched?: boolean,
+  handleKeyNavigation: $PropertyType<ProviderValue, 'handleKeyNavigation'>,
+  isTouched?: $PropertyType<ProviderValue, 'isTouched'>,
   className?: ?string,
   touchedClass?: string,
 };

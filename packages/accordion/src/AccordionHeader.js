@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 type Props = {
   controls: string,
-  togglePanel: (panelId: string) => void,
+  togglePanel: $PropertyType<ProviderValue, 'togglePanel'>,
   'aria-level'?: string,
   isDisabled?: boolean,
   isExpanded?: boolean,
