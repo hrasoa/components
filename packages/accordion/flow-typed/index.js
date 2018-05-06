@@ -1,6 +1,6 @@
-declare type Ref<E> = { current: null | E };
+declare type HTMLRef<E> = { current: null | E };
 
-declare type PanelRef = Ref<HTMLElement>;
+declare type PanelRef = HTMLRef<HTMLElement>;
 
 declare type ProviderValue = {
   addPanel: (
