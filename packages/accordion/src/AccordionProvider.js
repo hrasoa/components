@@ -28,7 +28,7 @@ type State = {
 
 type Props = {
   children: Node,
-  onChange?: (State, State, Panels) => void | any,
+  onChange?: ($Shape<State>, $Shape<State>, Panels) => void | any,
   allowMultiple?: boolean,
   allowToggle?: boolean,
 };
@@ -60,8 +60,8 @@ class AccordionProvider extends Component<Props, State> {
       prevState.expandedId !== expandedId
     )) {
       this.props.onChange(
-        { ...prevState },
-        { ...this.state },
+        { expandedStates: prevState.expandedStates, expandedId: prevState.expandedId },
+        { expandedStates, expandedId },
         this.panels,
       );
     }
