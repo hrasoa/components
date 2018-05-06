@@ -18,7 +18,7 @@ exports[`AccordionHeader initial 1`] = `
 </dt>
 `;
 
-exports[`AccordionHeader is expanded and disabled 1`] = `
+exports[`AccordionHeader is expanded 1`] = `
 <dt
   aria-level="2"
   role="heading"

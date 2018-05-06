@@ -25,7 +25,7 @@ describe('AccordionHeader', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  test('is expanded and disabled', () => {
+  test('is expanded', () => {
     const component = renderer.create(
       <AccordionHeader
         id="header-1"
