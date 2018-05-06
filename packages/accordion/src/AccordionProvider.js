@@ -12,11 +12,11 @@ import {
 
 const { Provider, Consumer } = React.createContext();
 
-type Props = {
-  children: Node,
-  onChange?: (?string | { [panelId: string]: boolean }) => void | any,
-  allowMultiple?: boolean,
-  allowToggle?: boolean,
+type Panels = {
+  [panelId: string]: {
+    ref: { current: null | HTMLElement },
+    isInitiallyExpanded: boolean,
+  }
 };
 
 type State = {
@@ -24,6 +24,13 @@ type State = {
   expandedStates: { [panelId: string]: boolean },
   focusedId: ?string,
   isTouched: boolean,
+};
+
+type Props = {
+  children: Node,
+  onChange?: (State, State, Panels) => void | any,
+  allowMultiple?: boolean,
+  allowToggle?: boolean,
 };
 
 class AccordionProvider extends Component<Props, State> {
@@ -52,7 +59,11 @@ class AccordionProvider extends Component<Props, State> {
       prevState.expandedStates !== expandedStates ||
       prevState.expandedId !== expandedId
     )) {
-      this.props.onChange(this.allowMultiple ? expandedStates : expandedId);
+      this.props.onChange(
+        { ...prevState },
+        { ...this.state },
+        this.panels,
+      );
     }
   }
 
@@ -175,12 +186,7 @@ class AccordionProvider extends Component<Props, State> {
 
   panelIds: Array<string>;
 
-  panels: {
-    [panelId: string]: {
-      ref: { current: null | HTMLElement },
-      isInitiallyExpanded: boolean,
-    }
-  };
+  panels: Panels;
 
   allowMultiple: boolean;
 

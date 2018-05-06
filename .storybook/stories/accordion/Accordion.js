@@ -48,13 +48,14 @@ const AccordionMinimal = ({
   expandedIds,
   renderHeader,
   renderPanel,
+  className,
   ...props
 }: Props) => (
   <AccordionProvider
     {...props}
   >
     <Accordion
-      className="accordion"
+      className={className}
     >
       {getItems(id, expandedIds, renderHeader, renderPanel)}
     </Accordion>
@@ -62,7 +63,7 @@ const AccordionMinimal = ({
 );
 
 AccordionMinimal.defaultProps = {
-  className: null,
+  className: 'accordion',
   allowMultiple: false,
   allowTogle: false,
   expandedIds: null,
