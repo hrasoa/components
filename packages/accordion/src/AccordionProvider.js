@@ -67,6 +67,20 @@ class AccordionProvider extends Component<Props, State> {
     }
   }
 
+  get providerValue(): ProviderValue {
+    return ({
+      addPanel: this.addPanel,
+      closeAll: this.closeAll,
+      handleKeyNavigation: this.handleKeyNavigation,
+      openAll: this.openAll,
+      isExpanded: this.isExpanded,
+      isDisabled: this.isDisabled,
+      isFocused: this.isFocused,
+      isTouched: this.state.isTouched,
+      togglePanel: this.togglePanel,
+    });
+  }
+
   addPanel = (
     panelId: string,
     ref: { current: null | HTMLElement },
@@ -193,17 +207,7 @@ class AccordionProvider extends Component<Props, State> {
   render() {
     return (
       <Provider
-        value={{
-          addPanel: this.addPanel,
-          closeAll: this.closeAll,
-          handleKeyNavigation: this.handleKeyNavigation,
-          openAll: this.openAll,
-          isExpanded: this.isExpanded,
-          isDisabled: this.isDisabled,
-          isFocused: this.isFocused,
-          isTouched: this.state.isTouched,
-          togglePanel: this.togglePanel,
-        }}
+        value={this.providerValue}
       >
         {this.props.children}
       </Provider>

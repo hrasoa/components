@@ -4,6 +4,7 @@
 
 [libs]
 flow-typed
+packages/accordion/flow-typed
 
 [lints]
 
