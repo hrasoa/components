@@ -28,10 +28,10 @@ type State = {
 };
 
 type Props = {
-  children: Node,
-  onChange?: ($Shape<State>, $Shape<State>, Panels) => void | any,
   allowMultiple?: boolean,
   allowToggle?: boolean,
+  children: Node,
+  onChange?: ($Shape<State>, $Shape<State>, Panels) => void | any,
 };
 
 class AccordionProvider extends Component<Props, State> {

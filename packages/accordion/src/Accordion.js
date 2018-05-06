@@ -2,9 +2,9 @@
 import React from 'react';
 
 type Props = {
+  className?: ?string,
   handleKeyNavigation: $PropertyType<ProviderValue, 'handleKeyNavigation'>,
   isTouched?: $PropertyType<ProviderValue, 'isTouched'>,
-  className?: ?string,
   touchedClass?: string,
 };
 
