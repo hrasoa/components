@@ -12,7 +12,7 @@ function withConsumer(
   mapValueToProps?: (value: ProviderValue, ownProps: PropsInput) => PropsOutput,
 ): (ComponentType<PropsOutput>) => ComponentType<PropsInput> {
   return (WrappedComponent) => {
-    function WithConsumer(ownProps) {
+    function WithConsumer(ownProps: {}) {
       return (
         <Consumer>
           {(value: ProviderValue) => (
