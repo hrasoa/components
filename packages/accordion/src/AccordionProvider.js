@@ -20,6 +20,7 @@ type Panels = {
 };
 
 type State = {
+  allowMultiple: boolean,
   expandedId: ?string,
   expandedStates: { [panelId: string]: boolean },
   focusedId: ?string,
@@ -43,6 +44,7 @@ class AccordionProvider extends Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
+      allowMultiple: !!this.props.allowMultiple,
       expandedId: null,
       expandedStates: {},
       focusedId: null,
@@ -50,19 +52,18 @@ class AccordionProvider extends Component<Props, State> {
     };
     this.panels = {};
     this.panelIds = [];
-    this.allowMultiple = false;
   }
 
   componentDidUpdate(prevProps: Props, prevState: State) {
-    const { expandedId, expandedStates } = this.state;
+    const { expandedId, expandedStates, allowMultiple } = this.state;
     if (this.props.onChange && (
       prevState.expandedStates !== expandedStates ||
       prevState.expandedId !== expandedId
     )) {
       this.props.onChange(
-        this.allowMultiple ?
+        allowMultiple ?
           { expandedStates: prevState.expandedStates } : { expandedId: prevState.expandedId },
-        this.allowMultiple ?
+        allowMultiple ?
           { expandedStates } : { expandedId },
         this.panels,
       );
@@ -91,7 +92,7 @@ class AccordionProvider extends Component<Props, State> {
     if (this.panels[panelId]) return;
     this.panelIds.push(panelId);
     this.panels[panelId] = { ref, isInitiallyExpanded };
-    this.allowMultiple =
+    const allowMultiple =
       !!this.props.allowMultiple ||
       this.panelIds
         .map(id => this.panels[id].isInitiallyExpanded)
@@ -103,6 +104,7 @@ class AccordionProvider extends Component<Props, State> {
         this.panelIds[0] :
         prevState.expandedId;
       return {
+        allowMultiple,
         expandedId: isInitiallyExpanded ? panelId : expandedId,
         expandedStates: { ...prevState.expandedStates, [panelId]: !!isInitiallyExpanded },
       };
@@ -110,10 +112,10 @@ class AccordionProvider extends Component<Props, State> {
   }
 
   isDisabled = (panelId: string): boolean =>
-    this.isExpanded(panelId) && !(this.allowMultiple || this.props.allowToggle);
+    this.isExpanded(panelId) && !(this.state.allowMultiple || this.props.allowToggle);
 
   isExpanded = (panelId: string): boolean =>
-    (this.allowMultiple ?
+    (this.state.allowMultiple ?
       this.state.expandedStates[panelId] : this.state.expandedId === panelId);
 
   isFocused = (panelId: string): boolean =>
@@ -142,12 +144,10 @@ class AccordionProvider extends Component<Props, State> {
   }
 
   openAll = (): void => {
-    if (!this.allowMultiple) return;
     this.toggleAllPanel(true);
   }
 
   closeAll = (): void => {
-    if (!this.allowMultiple) return;
     this.toggleAllPanel(false);
   }
 
@@ -203,8 +203,6 @@ class AccordionProvider extends Component<Props, State> {
   panelIds: Array<string>;
 
   panels: Panels;
-
-  allowMultiple: boolean;
 
   render() {
     return (
