@@ -2,12 +2,12 @@
 import React, { Component } from 'react';
 import type { Node } from 'react';
 import {
-  up,
   down,
-  home,
   end,
-  pageUp,
+  home,
   pageDown,
+  pageUp,
+  up,
 } from 'ally.js/map/keycode';
 
 const { Provider, Consumer } = React.createContext();
