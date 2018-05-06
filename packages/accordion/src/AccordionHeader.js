@@ -30,7 +30,7 @@ class AccordionHeader extends Component<Props> {
     this.props.togglePanel(this.props.controls);
   }
 
-  ref: { current: null | HTMLButtonElement };
+  ref: Ref<HTMLButtonElement>;
 
   render() {
     const {
