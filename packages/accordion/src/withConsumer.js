@@ -3,15 +3,15 @@ import * as React from 'react';
 import getDisplayName from '@hrasoa/components-utils/getDisplayName';
 
 type ProviderValue = {
+  addPanel: (panlelId: string) => void,
+  closeAll: () => void,
+  handleKeyNavigation: (e: SyntheticKeyboardEventElement<HTMLElement>) => void,
   isDisabled: (panlelId: string) => boolean,
   isExpanded: (panlelId: string) => boolean,
   isFocused: (panlelId: string) => boolean,
-  togglePanel: (panlelId: string) => void,
-  addPanel: (panlelId: string) => void,
-  handleKeyNavigation: (e: SyntheticKeyboardEventElement<HTMLElement>) => void,
-  openAll: () => void,
-  closeAll: () => void,
   isTouched: boolean,
+  openAll: () => void,
+  togglePanel: (panlelId: string) => void,
 };
 
 type PropsInput = any;

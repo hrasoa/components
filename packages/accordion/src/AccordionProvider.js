@@ -194,15 +194,15 @@ class AccordionProvider extends Component<Props, State> {
     return (
       <Provider
         value={{
+          addPanel: this.addPanel,
+          closeAll: this.closeAll,
+          handleKeyNavigation: this.handleKeyNavigation,
+          openAll: this.openAll,
           isExpanded: this.isExpanded,
           isDisabled: this.isDisabled,
           isFocused: this.isFocused,
-          togglePanel: this.togglePanel,
-          addPanel: this.addPanel,
-          handleKeyNavigation: this.handleKeyNavigation,
-          openAll: this.openAll,
-          closeAll: this.closeAll,
           isTouched: this.state.isTouched,
+          togglePanel: this.togglePanel,
         }}
       >
         {this.props.children}
