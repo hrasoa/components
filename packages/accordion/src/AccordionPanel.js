@@ -49,10 +49,9 @@ class AccordionPanel extends Component<Props> {
   }
 
   componentWillUnmount() {
-    if (this.handleInnert) {
-      this.handleInnert.disengage();
-      this.handleInnert = null;
-    }
+    if (!this.handleInnert) return;
+    this.handleInnert.disengage();
+    this.handleInnert = null;
   }
 
   handleInnert: null | { disengage: () => void };
