@@ -31,7 +31,7 @@ type Props = {
   allowMultiple?: boolean,
   allowToggle?: boolean,
   children: Node,
-  onChange?: ($Shape<State>, $Shape<State>, Panels) => void | any,
+  onChange?: ($Shape<State>, $Shape<State>, Panels) => mixed,
 };
 
 class AccordionProvider extends Component<Props, State> {
