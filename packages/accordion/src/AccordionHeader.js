@@ -2,12 +2,12 @@
 import React, { Component } from 'react';
 
 type Props = {
-  controls: string,
-  togglePanel: $PropertyType<ProviderValue, 'togglePanel'>,
   'aria-level'?: string,
+  controls: string,
   isDisabled?: boolean,
   isExpanded?: boolean,
   isFocused?: boolean,
+  togglePanel: $PropertyType<ProviderValue, 'togglePanel'>,
 };
 
 class AccordionHeader extends Component<Props> {
