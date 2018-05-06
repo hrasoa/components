@@ -24,6 +24,7 @@ class AccordionPanel extends Component<Props> {
   constructor(props: Props) {
     super(props);
     this.handleInnert = null;
+    this.ref = React.createRef();
     this.props.addPanel(this.props.id, this.ref, this.props.expanded);
   }
 
@@ -60,7 +61,7 @@ class AccordionPanel extends Component<Props> {
 
   handleInnert: null | { disengage: () => void };
 
-  ref: PanelRef = React.createRef();
+  ref: PanelRef;
 
   render() {
     const {

@@ -15,6 +15,11 @@ class AccordionHeader extends Component<Props> {
     'aria-level': '3',
   }
 
+  constructor(props: Props) {
+    super(props);
+    this.ref = React.createRef();
+  }
+
   componentDidUpdate() {
     if (this.props.isFocused && this.ref.current) {
       this.ref.current.focus();
@@ -25,7 +30,7 @@ class AccordionHeader extends Component<Props> {
     this.props.togglePanel(this.props.controls);
   }
 
-  ref: { current: null | HTMLButtonElement } = React.createRef();
+  ref: { current: null | HTMLButtonElement };
 
   render() {
     const {
