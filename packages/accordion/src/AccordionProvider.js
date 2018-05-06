@@ -70,7 +70,7 @@ class AccordionProvider extends Component<Props, State> {
   }
 
   get providerValue(): ProviderValue {
-    return ({
+    return {
       addPanel: this.addPanel,
       closeAll: this.closeAll,
       handleKeyNavigation: this.handleKeyNavigation,
@@ -80,7 +80,7 @@ class AccordionProvider extends Component<Props, State> {
       isFocused: this.isFocused,
       isTouched: this.state.isTouched,
       togglePanel: this.togglePanel,
-    });
+    };
   }
 
   addPanel = (
