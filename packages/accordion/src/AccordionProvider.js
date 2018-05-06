@@ -93,7 +93,7 @@ class AccordionProvider extends Component<Props, State> {
     this.panelIds.push(panelId);
     this.panels[panelId] = { ref, isInitiallyExpanded };
     const allowMultiple =
-      !!this.props.allowMultiple ||
+      this.state.allowMultiple ||
       this.panelIds
         .map(id => this.panels[id].isInitiallyExpanded)
         .filter(expanded => expanded === true)
@@ -106,7 +106,7 @@ class AccordionProvider extends Component<Props, State> {
       return {
         allowMultiple,
         expandedId: isInitiallyExpanded ? panelId : expandedId,
-        expandedStates: { ...prevState.expandedStates, [panelId]: !!isInitiallyExpanded },
+        expandedStates: { ...prevState.expandedStates, [panelId]: isInitiallyExpanded },
       };
     });
   }
