@@ -56,7 +56,7 @@ describe('AccordionPanel', () => {
     expect(mockAddPanel).toHaveBeenCalledWith(
       'panel-1',
       { current: wrapper.find('dd').first().instance() },
-      undefined,
+      false,
     );
   });
 
