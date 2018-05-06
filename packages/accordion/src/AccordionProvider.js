@@ -60,8 +60,10 @@ class AccordionProvider extends Component<Props, State> {
       prevState.expandedId !== expandedId
     )) {
       this.props.onChange(
-        { expandedStates: prevState.expandedStates, expandedId: prevState.expandedId },
-        { expandedStates, expandedId },
+        this.allowMultiple ?
+          { expandedStates: prevState.expandedStates } : { expandedId: prevState.expandedId },
+        this.allowMultiple ?
+          { expandedStates } : { expandedId },
         this.panels,
       );
     }
