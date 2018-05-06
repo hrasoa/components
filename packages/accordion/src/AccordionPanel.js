@@ -8,7 +8,7 @@ type Props = {
   expanded?: boolean,
   addPanel: (
     id: string,
-    ref: { current: null | HTMLElement },
+    ref: PanelRef,
     isInitiallyExpanded: ?boolean,
   ) => void,
   className?: ?string,
@@ -60,7 +60,7 @@ class AccordionPanel extends Component<Props> {
 
   handleInnert: null | { disengage: () => void };
 
-  ref: { current: null | HTMLElement } = React.createRef();
+  ref: PanelRef = React.createRef();
 
   render() {
     const {

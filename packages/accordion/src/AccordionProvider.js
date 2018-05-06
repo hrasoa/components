@@ -14,7 +14,7 @@ const { Provider, Consumer } = React.createContext();
 
 type Panels = {
   [panelId: string]: {
-    ref: { current: null | HTMLElement },
+    ref: PanelRef,
     isInitiallyExpanded: boolean,
   }
 };
@@ -85,7 +85,7 @@ class AccordionProvider extends Component<Props, State> {
 
   addPanel = (
     panelId: string,
-    ref: { current: null | HTMLElement },
+    ref: PanelRef,
     isInitiallyExpanded: boolean,
   ): void => {
     if (this.panels[panelId]) return;

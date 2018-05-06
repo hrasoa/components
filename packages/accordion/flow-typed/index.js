@@ -1,7 +1,9 @@
+declare type PanelRef = { current: null | HTMLElement };
+
 declare type ProviderValue = {
   addPanel: (
     panelId: string,
-    ref: { current: null | HTMLElement },
+    ref: PanelRef,
     isInitiallyExpanded: boolean,
   ) => void,
   closeAll: () => void,
