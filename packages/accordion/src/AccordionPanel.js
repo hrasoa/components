@@ -3,13 +3,13 @@ import React, { Component } from 'react';
 import disabled from 'ally.js/maintain/disabled';
 
 type Props = {
-  id: string,
-  expandedClass?: string,
-  expanded?: boolean,
   addPanel: $PropertyType<ProviderValue, 'addPanel'>,
   className?: ?string,
-  isExpanded?: boolean,
   disableInnert?: boolean,
+  expandedClass?: string,
+  expanded?: boolean,
+  id: string,
+  isExpanded?: boolean,
 };
 
 class AccordionPanel extends Component<Props> {
