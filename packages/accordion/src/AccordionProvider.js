@@ -58,9 +58,9 @@ class AccordionProvider extends Component<Props, State> {
 
   componentDidUpdate(prevProps: Props, prevState: State) {
     const {
+      allowMultiple,
       expandedId,
       expandedStates,
-      allowMultiple,
       panels,
     } = this.state;
     if (this.props.onChange && (
@@ -134,21 +134,21 @@ class AccordionProvider extends Component<Props, State> {
     if (!this.state.panels[panelId]) return;
 
     this.setState(prevState => ({
-      isTouched: true,
       expandedId: this.props.allowToggle && prevState.expandedId === panelId ? null : panelId,
       expandedStates: {
         ...prevState.expandedStates,
         [panelId]: !prevState.expandedStates[panelId],
       },
       focusedId: panelId,
+      isTouched: true,
     }));
   }
 
   toggleAllPanel(open: boolean): void {
     this.setState(prevState => ({
-      isTouched: true,
       expandedStates: Object.keys(prevState.expandedStates)
         .reduce((acc, panelId) => ({ ...acc, [panelId]: open }), {}),
+      isTouched: true,
     }));
   }
 
