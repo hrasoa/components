@@ -10,8 +10,8 @@ type Props = {
 
 const Accordion = (props: Props) => {
   const {
-    handleKeyNavigation,
     className,
+    handleKeyNavigation,
     isTouched,
     touchedClass,
     ...rest
