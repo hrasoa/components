@@ -34,12 +34,12 @@ class AccordionHeader extends Component<Props> {
 
   render() {
     const {
+      'aria-level': ariaLevel,
       controls,
       isDisabled,
       isExpanded,
       isFocused,
       togglePanel,
-      'aria-level': ariaLevel,
       ...rest
     } = this.props;
     return (
