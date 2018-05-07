@@ -25,6 +25,8 @@ type State = {
   expandedStates: { [panelId: string]: boolean },
   focusedId: ?string,
   isTouched: boolean,
+  panelIds: Array<string>,
+  panels: Panels,
 };
 
 type Props = {
@@ -49,13 +51,18 @@ class AccordionProvider extends Component<Props, State> {
       expandedStates: {},
       focusedId: null,
       isTouched: false,
+      panels: {},
+      panelIds: [],
     };
-    this.panels = {};
-    this.panelIds = [];
   }
 
   componentDidUpdate(prevProps: Props, prevState: State) {
-    const { expandedId, expandedStates, allowMultiple } = this.state;
+    const {
+      expandedId,
+      expandedStates,
+      allowMultiple,
+      panels,
+    } = this.state;
     if (this.props.onChange && (
       prevState.expandedStates !== expandedStates ||
       prevState.expandedId !== expandedId
@@ -65,7 +72,7 @@ class AccordionProvider extends Component<Props, State> {
           { expandedStates: prevState.expandedStates } : { expandedId: prevState.expandedId },
         allowMultiple ?
           { expandedStates } : { expandedId },
-        this.panels,
+        panels,
       );
     }
   }
@@ -89,24 +96,26 @@ class AccordionProvider extends Component<Props, State> {
     ref: PanelRef,
     isInitiallyExpanded: boolean,
   ): void => {
-    if (this.panels[panelId]) return;
-    this.panelIds.push(panelId);
-    this.panels[panelId] = { ref, isInitiallyExpanded };
-    const allowMultiple =
-      this.state.allowMultiple ||
-      this.panelIds
-        .map(id => this.panels[id].isInitiallyExpanded)
-        .filter(expanded => expanded === true)
-        .length > 2;
+    if (this.state.panels[panelId]) return;
 
     this.setState((prevState) => {
-      const expandedId = !prevState.expandedId && this.panelIds.length ?
-        this.panelIds[0] :
+      const panelIds = [...prevState.panelIds, panelId];
+      const panels = { ...prevState.panels, [panelId]: { ref, isInitiallyExpanded } };
+      const allowMultiple =
+        prevState.allowMultiple ||
+        panelIds
+          .map(id => panels[id].isInitiallyExpanded)
+          .filter(expanded => expanded === true)
+          .length > 2;
+      const expandedId = !prevState.expandedId && panelIds.length ?
+        panelIds[0] :
         prevState.expandedId;
       return {
         allowMultiple,
         expandedId: isInitiallyExpanded ? panelId : expandedId,
         expandedStates: { ...prevState.expandedStates, [panelId]: isInitiallyExpanded },
+        panelIds,
+        panels,
       };
     });
   }
@@ -122,7 +131,7 @@ class AccordionProvider extends Component<Props, State> {
     this.state.focusedId === panelId;
 
   togglePanel = (panelId: string): void => {
-    if (!this.panels[panelId]) return;
+    if (!this.state.panels[panelId]) return;
 
     this.setState(prevState => ({
       isTouched: true,
@@ -152,19 +161,18 @@ class AccordionProvider extends Component<Props, State> {
   }
 
   handleKeyNavigation = (e: SyntheticKeyboardEventElement<HTMLElement>): void => {
+    const { panelIds, panels } = this.state;
     const key = e.which.toString();
     const ctrlModifier = (e.ctrlKey && key.match(new RegExp(`${pageUp}|${pageDown}`)));
-    const count = this.panelIds.length;
-    const index = this.panelIds.indexOf(e.target.getAttribute('aria-controls'));
+    const count = panelIds.length;
+    const index = panelIds.indexOf(e.target.getAttribute('aria-controls'));
     if (index < 0) {
       // Inside a panel
       if (ctrlModifier) {
-        Object.keys(this.panels).every((panelId) => {
-          const { ref } = this.panels[panelId];
+        Object.keys(panels).every((panelId) => {
+          const { ref } = panels[panelId];
           if (ref.current && ref.current.contains(e.target)) {
-            this.setState({
-              focusedId: panelId,
-            });
+            this.setState({ focusedId: panelId });
             // exit
             return false;
           }
@@ -178,18 +186,18 @@ class AccordionProvider extends Component<Props, State> {
     if (key.match(new RegExp(`${up}|${down}`)) || ctrlModifier) {
       const direction = (key.match(new RegExp(`${pageDown}|${down}`))) ? 1 : -1;
       this.setState({
-        focusedId: this.panelIds[(index + count + direction) % count],
+        focusedId: panelIds[(index + count + direction) % count],
       });
       e.preventDefault();
     } else if (key.match(new RegExp(`${home}|${end}`))) {
       switch (e.which) {
         // Go to first accordion
         case home:
-          this.setState({ focusedId: this.panelIds[0] });
+          this.setState({ focusedId: panelIds[0] });
           break;
           // Go to last accordion
         case end:
-          this.setState({ focusedId: this.panelIds[count - 1] });
+          this.setState({ focusedId: panelIds[count - 1] });
           break;
         default:
           break;
@@ -199,10 +207,6 @@ class AccordionProvider extends Component<Props, State> {
       this.setState({ focusedId: null });
     }
   }
-
-  panelIds: Array<string>;
-
-  panels: Panels;
 
   render() {
     return (
