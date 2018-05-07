@@ -60,11 +60,11 @@ class AccordionPanel extends Component<Props> {
 
   render() {
     const {
+      addPanel,
       className,
+      expanded,
       expandedClass,
       isExpanded,
-      expanded,
-      addPanel,
       ...rest
     } = this.props;
     return (

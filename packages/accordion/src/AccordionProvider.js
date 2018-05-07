@@ -51,8 +51,8 @@ class AccordionProvider extends Component<Props, State> {
       expandedStates: {},
       focusedId: null,
       isTouched: false,
-      panels: {},
       panelIds: [],
+      panels: {},
     };
   }
 
@@ -82,11 +82,11 @@ class AccordionProvider extends Component<Props, State> {
       addPanel: this.addPanel,
       closeAll: this.closeAll,
       handleKeyNavigation: this.handleKeyNavigation,
-      openAll: this.openAll,
-      isExpanded: this.isExpanded,
       isDisabled: this.isDisabled,
+      isExpanded: this.isExpanded,
       isFocused: this.isFocused,
       isTouched: this.state.isTouched,
+      openAll: this.openAll,
       togglePanel: this.togglePanel,
     };
   }
@@ -100,7 +100,7 @@ class AccordionProvider extends Component<Props, State> {
 
     this.setState((prevState) => {
       const panelIds = [...prevState.panelIds, panelId];
-      const panels = { ...prevState.panels, [panelId]: { ref, isInitiallyExpanded } };
+      const panels = { ...prevState.panels, [panelId]: { isInitiallyExpanded, ref } };
       const allowMultiple =
         prevState.allowMultiple ||
         panelIds
