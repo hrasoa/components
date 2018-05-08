@@ -67,7 +67,21 @@ describe('AccordionPanel', () => {
   });
 
   describe('DOM Testing', () => {
-    test('should call addPanel and disabled on mount', () => {
+    test('should call addPanel on mount', () => {
+      const wrapper = mount(
+        <AccordionPanel
+          id="panel-1"
+          addPanel={mockAddPanel}
+        >
+          Panel 1
+        </AccordionPanel>,
+      );
+      const ref = { current: wrapper.find('dd').first().instance() };
+      expect(mockAddPanel).toHaveBeenCalledTimes(1);
+      expect(mockAddPanel).toHaveBeenCalledWith('panel-1', ref, false);
+    });
+
+    test('should test disabled behavior', () => {
       const wrapper = mount(
         <AccordionPanel
           id="panel-1"
@@ -78,9 +92,7 @@ describe('AccordionPanel', () => {
       );
       const ref = { current: wrapper.find('dd').first().instance() };
       expect(mockDisabled).toHaveBeenCalledTimes(1);
-      expect(mockAddPanel).toHaveBeenCalledTimes(1);
       expect(mockDisabled).toHaveBeenCalledWith({ context: ref.current });
-      expect(mockAddPanel).toHaveBeenCalledWith('panel-1', ref, false);
       wrapper.setProps({ isExpanded: true });
       expect(mockDisengage).toHaveBeenCalledTimes(1);
       wrapper.setProps({ isExpanded: false });
