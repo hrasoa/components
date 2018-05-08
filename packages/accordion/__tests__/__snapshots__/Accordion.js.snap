@@ -1,8 +1,20 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Accordion initial 1`] = `
+exports[`Accordion Snapshot testing minimal 1`] = `
 <dl
   className={null}
+  onKeyDown={[MockFunction]}
+  role="presentation"
+>
+  <span>
+    accordion items
+  </span>
+</dl>
+`;
+
+exports[`Accordion Snapshot testing with more props 1`] = `
+<dl
+  className="accordion"
   onKeyDown={[MockFunction]}
   role="presentation"
 >

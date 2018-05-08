@@ -1,18 +1,18 @@
 // @flow
 import * as React from 'react';
 import {
-  AccordionProvider,
   Accordion,
+  AccordionProvider,
   AccordionHeader,
   AccordionPanel,
 } from '../src';
 
 type Props = {
-  renderHeader?: (i: number) => string | React.Node,
-  className?: string,
   allowTogle?: boolean,
   allowMultiple?: boolean,
+  className?: string,
   expandedIds?: Array<string>,
+  renderHeader?: (i: number) => string | React.Node,
 };
 
 const getItems = (expandedIds, renderHeader) => {
@@ -51,9 +51,9 @@ const AccordionTest = ({ expandedIds, renderHeader, ...props }: Props) => (
 );
 
 AccordionTest.defaultProps = {
-  className: null,
   allowMultiple: false,
   allowTogle: false,
+  className: null,
   expandedIds: null,
   renderHeader: i => `Header ${i + 1}`,
 };

@@ -2,8 +2,8 @@
 import React from 'react';
 import type { Node } from 'react';
 import {
-  AccordionProvider,
   Accordion,
+  AccordionProvider,
   AccordionHeader,
   AccordionPanel,
 } from '../../../packages/accordion/src';
@@ -63,10 +63,11 @@ const AccordionMinimal = ({
 );
 
 AccordionMinimal.defaultProps = {
-  className: 'accordion',
   allowMultiple: false,
   allowTogle: false,
+  className: 'accordion',
   expandedIds: null,
+  id: 'minimal',
   renderHeader: (i: number): string => `Header ${i + 1}`,
   renderPanel: (i: number, id: string): Node => (
     <ul>
@@ -82,7 +83,6 @@ AccordionMinimal.defaultProps = {
       </li>
     </ul>
   ),
-  id: 'minimal',
 };
 
 export default AccordionMinimal;

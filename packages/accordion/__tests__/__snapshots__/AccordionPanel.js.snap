@@ -1,6 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccordionPanel initial 1`] = `
+exports[`AccordionPanel Snapshot testing expanded state 1`] = `
+<dd
+  className="is-expanded"
+  id="panel-1"
+>
+  Panel 1
+</dd>
+`;
+
+exports[`AccordionPanel Snapshot testing minimal 1`] = `
 <dd
   className={null}
   id="panel-1"
@@ -9,10 +18,10 @@ exports[`AccordionPanel initial 1`] = `
 </dd>
 `;
 
-exports[`AccordionPanel is expanded 1`] = `
+exports[`AccordionPanel Snapshot testing with more props 1`] = `
 <dd
   aria-labelledby="header-1"
-  className="accordion__panel is-expanded"
+  className="accordion__panel"
   id="panel-1"
   role="region"
 >

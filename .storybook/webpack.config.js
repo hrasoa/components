@@ -23,15 +23,15 @@ module.exports = (storybookBaseConfig) => {
 
   rules.push({
     enforce: 'pre',
+    exclude: /node_modules/,
     test: /\.js$/,
     use: 'eslint-loader',
-    exclude: /node_modules/,
   });
 
   rules.push({
+    exclude: /node_modules/,
     test: /\.scss$/,
     use: ['style-loader', 'css-loader', 'sass-loader'],
-    exclude: /node_modules/,
   });
 
   return {

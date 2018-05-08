@@ -1,6 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`AccordionHeader initial 1`] = `
+exports[`AccordionHeader Snapshot testing expanded and disabled state 1`] = `
+<dt
+  aria-level="2"
+  role="heading"
+>
+  <button
+    aria-controls="panel-1"
+    aria-disabled={true}
+    aria-expanded={true}
+    id="header-1"
+    onClick={[Function]}
+    type="button"
+  >
+    Header 1
+  </button>
+</dt>
+`;
+
+exports[`AccordionHeader Snapshot testing minimal 1`] = `
 <dt
   aria-level="3"
   role="heading"
@@ -18,15 +36,15 @@ exports[`AccordionHeader initial 1`] = `
 </dt>
 `;
 
-exports[`AccordionHeader is expanded 1`] = `
+exports[`AccordionHeader Snapshot testing with more props 1`] = `
 <dt
   aria-level="2"
   role="heading"
 >
   <button
     aria-controls="panel-1"
-    aria-disabled={true}
-    aria-expanded={true}
+    aria-disabled={undefined}
+    aria-expanded={undefined}
     className="accordion__header"
     id="header-1"
     onClick={[Function]}

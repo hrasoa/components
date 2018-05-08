@@ -13,20 +13,20 @@ const Accordion = withAccordion(({ handleKeyNavigation, isTouched }) => ({
 }))(BaseAccordion);
 
 const AccordionHeader = withAccordion((providerValue, { controls }: { controls: string }) => ({
-  togglePanel: providerValue.togglePanel,
-  isExpanded: providerValue.isExpanded(controls),
   isDisabled: providerValue.isDisabled(controls),
+  isExpanded: providerValue.isExpanded(controls),
   isFocused: providerValue.isFocused(controls),
+  togglePanel: providerValue.togglePanel,
 }))(BaseAccordionHeader);
 
-const AccordionPanel = withAccordion(({ addPanel, isExpanded }, { id }: { id: string }) => ({
+const AccordionPanel = withAccordion(({ addPanel, isExpanded }, ownProps: { id: string }) => ({
   addPanel,
-  isExpanded: isExpanded(id),
+  isExpanded: isExpanded(ownProps.id),
 }))(BaseAccordionPanel);
 
 export {
-  AccordionProvider,
   Accordion,
+  AccordionProvider,
   AccordionHeader,
   AccordionPanel,
   withAccordion,
