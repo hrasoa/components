@@ -103,8 +103,6 @@ describe('AccordionPanel', () => {
         <AccordionPanel
           id="panel-1"
           addPanel={mockAddPanel}
-          expanded
-          isExpanded
           disableInnert
         >
           Panel 1
