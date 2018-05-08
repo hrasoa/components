@@ -81,6 +81,42 @@ describe('AccordionPanel', () => {
       expect(mockAddPanel).toHaveBeenCalledWith('panel-1', ref, false);
     });
 
+    test('should call addPanel on mount with expanded', () => {
+      const wrapper = mount(
+        <AccordionPanel
+          id="panel-1"
+          addPanel={mockAddPanel}
+          expanded
+          isExpanded
+        >
+          Panel 1
+        </AccordionPanel>,
+      );
+      const ref = { current: wrapper.find('dd').first().instance() };
+      expect(mockDisabled).not.toHaveBeenCalled();
+      expect(mockAddPanel).toHaveBeenCalledTimes(1);
+      expect(mockAddPanel).toHaveBeenCalledWith('panel-1', ref, true);
+    });
+
+    test('should not call disabled on mount, even expanded', () => {
+      const wrapper = mount(
+        <AccordionPanel
+          id="panel-1"
+          addPanel={mockAddPanel}
+          expanded
+          isExpanded
+          disableInnert
+        >
+          Panel 1
+        </AccordionPanel>,
+      );
+      wrapper.setProps({ isExpanded: false });
+      wrapper.setProps({ isExpanded: true });
+      wrapper.unmount();
+      expect(mockDisabled).not.toHaveBeenCalled();
+      expect(mockDisengage).not.toHaveBeenCalled();
+    });
+
     test('should test disabled behavior', () => {
       const wrapper = mount(
         <AccordionPanel
@@ -100,38 +136,6 @@ describe('AccordionPanel', () => {
       expect(mockDisabled).toHaveBeenCalledWith({ context: ref.current });
       wrapper.unmount();
       expect(mockDisengage).toHaveBeenCalledTimes(2);
-    });
-
-    test('should call addPanel on mount with expanded', () => {
-      const wrapper = mount(
-        <AccordionPanel
-          id="panel-1"
-          addPanel={mockAddPanel}
-          expanded
-          isExpanded
-        >
-          Panel 1
-        </AccordionPanel>,
-      );
-      const ref = { current: wrapper.find('dd').first().instance() };
-      expect(mockDisabled).not.toHaveBeenCalled();
-      expect(mockAddPanel).toHaveBeenCalledTimes(1);
-      expect(mockAddPanel).toHaveBeenCalledWith('panel-1', ref, true);
-    });
-
-    test('should not call disabled on mount, even expanded', () => {
-      mount(
-        <AccordionPanel
-          id="panel-1"
-          addPanel={mockAddPanel}
-          expanded
-          isExpanded
-          disableInnert
-        >
-          Panel 1
-        </AccordionPanel>,
-      );
-      expect(mockDisabled).not.toHaveBeenCalled();
     });
   });
 });
