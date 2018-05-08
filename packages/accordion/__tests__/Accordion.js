@@ -24,6 +24,19 @@ describe('Accordion', () => {
       expect(tree).toMatchSnapshot();
     });
 
+    test('touched state', () => {
+      const component = renderer.create(
+        <Accordion
+          handleKeyNavigation={mockKeyNavigation}
+          isTouched
+        >
+          <span>accordion items</span>
+        </Accordion>,
+      );
+      const tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+
     test('with more props', () => {
       const component = renderer.create(
         <Accordion

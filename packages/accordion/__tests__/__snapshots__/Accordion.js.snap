@@ -12,6 +12,18 @@ exports[`Accordion Snapshot testing minimal 1`] = `
 </dl>
 `;
 
+exports[`Accordion Snapshot testing touched state 1`] = `
+<dl
+  className="is-touched"
+  onKeyDown={[MockFunction]}
+  role="presentation"
+>
+  <span>
+    accordion items
+  </span>
+</dl>
+`;
+
 exports[`Accordion Snapshot testing with more props 1`] = `
 <dl
   className="accordion"

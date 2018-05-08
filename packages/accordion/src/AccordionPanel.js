@@ -62,6 +62,7 @@ class AccordionPanel extends Component<Props> {
     const {
       addPanel,
       className,
+      disableInnert,
       expanded,
       expandedClass,
       isExpanded,
