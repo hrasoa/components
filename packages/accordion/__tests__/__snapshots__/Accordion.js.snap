@@ -17,6 +17,11 @@ exports[`Accordion Snapshot testing with more props 1`] = `
   className="accordion"
   onKeyDown={[MockFunction]}
   role="presentation"
+  style={
+    Object {
+      "color": "inherit",
+    }
+  }
 >
   <span>
     accordion items

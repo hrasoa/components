@@ -24,6 +24,11 @@ exports[`AccordionPanel Snapshot testing with more props 1`] = `
   className="accordion__panel"
   id="panel-1"
   role="region"
+  style={
+    Object {
+      "color": "inherit",
+    }
+  }
 >
   Panel 1
 </dd>

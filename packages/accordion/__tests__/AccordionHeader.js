@@ -33,6 +33,7 @@ describe('AccordionHeader', () => {
           controls="panel-1"
           className="accordion__header"
           aria-level="2"
+          style={{ color: 'inherit' }}
           togglePanel={mockTogglePanel}
         >
           Header 1

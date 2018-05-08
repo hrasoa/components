@@ -29,6 +29,7 @@ describe('Accordion', () => {
         <Accordion
           handleKeyNavigation={mockKeyNavigation}
           className="accordion"
+          style={{ color: 'inherit' }}
         >
           <span>accordion items</span>
         </Accordion>,

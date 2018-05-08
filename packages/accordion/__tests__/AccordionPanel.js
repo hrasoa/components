@@ -35,6 +35,7 @@ describe('AccordionPanel', () => {
           aria-labelledby="header-1"
           role="region"
           addPanel={mockAddPanel}
+          style={{ color: 'inherit' }}
         >
           Panel 1
         </AccordionPanel>,
