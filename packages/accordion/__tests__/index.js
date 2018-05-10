@@ -58,4 +58,10 @@ AccordionTest.defaultProps = {
   renderHeader: i => `Header ${i + 1}`,
 };
 
+describe('true', () => {
+  test('test', () => {
+    expect(true).toBeTruthy();
+  });
+});
+
 export default AccordionTest;
