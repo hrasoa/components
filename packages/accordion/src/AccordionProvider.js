@@ -100,7 +100,7 @@ class AccordionProvider extends Component<Props, State> {
 
     this.setState((prevState) => {
       const panelIds = [...prevState.panelIds, panelId];
-      const panels = { ...prevState.panels, [panelId]: { isInitiallyExpanded, ref } };
+      const panels: Panels = { ...prevState.panels, [panelId]: { isInitiallyExpanded, ref } };
       const allowMultiple =
         prevState.allowMultiple ||
         panelIds
