@@ -144,7 +144,7 @@ class AccordionProvider extends Component<Props, State> {
     }));
   }
 
-  toggleAllPanel(open: boolean): void {
+  toggleAllPanels(open: boolean): void {
     this.setState(prevState => ({
       expandedStates: Object.keys(prevState.expandedStates)
         .reduce((acc, panelId) => ({ ...acc, [panelId]: open }), {}),
@@ -153,11 +153,11 @@ class AccordionProvider extends Component<Props, State> {
   }
 
   openAll = (): void => {
-    this.toggleAllPanel(true);
+    this.toggleAllPanels(true);
   }
 
   closeAll = (): void => {
-    this.toggleAllPanel(false);
+    this.toggleAllPanels(false);
   }
 
   handleKeyNavigation = (e: SyntheticKeyboardEventElement<HTMLElement>): void => {

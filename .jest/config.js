@@ -6,6 +6,7 @@ module.exports = {
   coverageDirectory: resolve('../coverage/jest'),
   collectCoverageFrom: [
     '**/src/*.js',
+    '!**/src/index.js',
   ],
   rootDir: resolve('../packages'),
   setupFiles: [
