@@ -56,10 +56,11 @@
     "style-loader": "^0.21.0"
   },
   "flow-coverage-report": {
-    "outputDir": "coverage/flow",
     "includeGlob": [
       "packages/**/src/*.js"
     ],
+    "outputDir": "coverage/flow",
+    "threshold": 90,
     "type": [
       "text",
       "html",
