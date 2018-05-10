@@ -3,7 +3,7 @@ const path = require('path');
 const resolve = p => path.resolve(__dirname, p);
 
 module.exports = {
-  coverageDirectory: resolve('coverage'),
+  coverageDirectory: resolve('../coverage/jest'),
   collectCoverageFrom: [
     '**/src/*.js',
   ],
