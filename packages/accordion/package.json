@@ -6,9 +6,6 @@
   "repository": "hrasoa/components",
   "author": "Haja Rasoahaingo <haja.rasoah@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "doc": "utils-docgen"
-  },
   "bugs": {
     "url": "https://github.com/hrasoa/components/issues"
   },

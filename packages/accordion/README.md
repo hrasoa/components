@@ -2,11 +2,11 @@
 
 Accordion
 
-## Installation
+## Install
 
 ```bash
-$ npm install @hrasoa/accordion --save
-$ yarn add @hrasoa/accordion
+npm install --save @hrasoa/accordion
+yarn add @hrasoa/accordion
 ```
 
 ## General usage
@@ -35,37 +35,7 @@ import {
 </AccordionProvider>
 ```
 
-
 ## Api
 
-### `<AccordionProvider>`
-
-
-
-**Props**
-
-
-
-### `<Accordion>`
-
-
-
-**Props**
-
-
-
-### `<AccordionHeader>`
-
-
-
-**Props**
-
-
-
-### `<AccordionPanel>`
-
-
-
-**Props**
 
 

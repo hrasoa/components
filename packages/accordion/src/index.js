@@ -19,9 +19,10 @@ const AccordionHeader = withAccordion((providerValue, { controls }: { controls: 
   togglePanel: providerValue.togglePanel,
 }))(BaseAccordionHeader);
 
-const AccordionPanel = withAccordion(({ addPanel, isExpanded }, ownProps: { id: string }) => ({
-  addPanel,
-  isExpanded: isExpanded(ownProps.id),
+const AccordionPanel = withAccordion((providerValue, ownProps: { id: string }) => ({
+  addPanel: providerValue.addPanel,
+  disableInnert: providerValue.disableInnert,
+  isExpanded: providerValue.isExpanded(ownProps.id),
 }))(BaseAccordionPanel);
 
 export {

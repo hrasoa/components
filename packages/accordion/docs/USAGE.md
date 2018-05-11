@@ -1,3 +1,6 @@
+---
+title: General usage
+---
 ```jsx
 import {
   AccordionProvider,

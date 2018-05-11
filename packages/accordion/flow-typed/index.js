@@ -9,6 +9,7 @@ declare type ProviderValue = {
     isInitiallyExpanded: boolean,
   ) => void,
   closeAll: () => void,
+  disableInnert: boolean,
   handleKeyNavigation: (e: SyntheticKeyboardEventElement<HTMLElement>) => void,
   isDisabled: (panlelId: string) => boolean,
   isExpanded: (panlelId: string) => boolean,

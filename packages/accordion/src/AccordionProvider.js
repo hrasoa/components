@@ -33,16 +33,11 @@ type Props = {
   allowMultiple?: boolean,
   allowToggle?: boolean,
   children: Node,
+  disableInnert?: boolean,
   onChange?: ($Shape<State>, $Shape<State>, Panels) => void,
 };
 
 class AccordionProvider extends Component<Props, State> {
-  static defaultProps = {
-    allowMultiple: false,
-    allowTogle: false,
-    className: null,
-  };
-
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -77,10 +72,11 @@ class AccordionProvider extends Component<Props, State> {
     }
   }
 
-  get providerValue(): ProviderValue {
+  get providerValue(): $Exact<ProviderValue> {
     return {
       addPanel: this.addPanel,
       closeAll: this.closeAll,
+      disableInnert: !!this.props.disableInnert,
       handleKeyNavigation: this.handleKeyNavigation,
       isDisabled: this.isDisabled,
       isExpanded: this.isExpanded,
