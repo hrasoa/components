@@ -1,4 +1,4 @@
 ---
-- usage.md
+- use.md
 - api.md
 ---
