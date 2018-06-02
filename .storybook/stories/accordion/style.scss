@@ -1,8 +1,4 @@
 .accordion {
-  dt [aria-expanded="true"] {
-    font-weight: bold;
-  }
-
   &.is-touched > dd {
     display: block;
     transition: max-height .2s;

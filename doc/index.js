@@ -31,7 +31,7 @@ pkgWithDocs.forEach((pkg) => {
     if (pageContent.body) md.write(pageContent.body);
     console.log(pageContent);
     console.log();
-    md.write('\n');
+    md.write('\n\n');
   });
   md.end(os.EOL);
 });
