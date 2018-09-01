@@ -1,7 +1,7 @@
 // @flow
 import React from 'react';
 import type { ComponentType } from 'react';
-import getDisplayName from '@hrasoa/components-utils/getDisplayName';
+import { getDisplayName } from '@hrasoa/components-utils';
 
 type PropsInput = any;
 

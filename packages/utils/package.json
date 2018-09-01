@@ -2,8 +2,11 @@
   "name": "@hrasoa/components-utils",
   "version": "0.0.0",
   "description": "",
+  "main": "lib/index.js",
+  "module": "src",
   "files": [
-    "getDisplayName.js"
+    "src",
+    "lib"
   ],
   "repository": "hrasoa/components",
   "author": "Haja Rasoahaingo <haja.rasoah@gmail.com>",

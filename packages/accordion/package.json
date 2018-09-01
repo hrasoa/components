@@ -3,9 +3,14 @@
   "version": "0.0.0",
   "description": "Accordion",
   "main": "lib/index.js",
+  "module": "src",
   "repository": "hrasoa/components",
   "author": "Haja Rasoahaingo <haja.rasoah@gmail.com>",
   "license": "MIT",
+  "files": [
+    "lib",
+    "src"
+  ],
   "bugs": {
     "url": "https://github.com/hrasoa/components/issues"
   },

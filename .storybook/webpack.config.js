@@ -43,6 +43,10 @@ module.exports = (storybookBaseConfig) => {
         modules: false,
       },
     },
+    resolve: {
+      ...storybookBaseConfig.resolve,
+      mainFields: ['module', 'main']
+    },
     module: {
       ...storybookBaseConfig.module,
       rules,

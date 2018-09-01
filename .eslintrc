@@ -23,5 +23,16 @@
     "no-use-before-define": ["error", { "functions": false }],
     "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }],
     "sort-keys": ["error", "asc"]
+  },
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+        "config": {
+          "resolve": {
+            "mainFields": ["module", "main"]
+          }
+        }
+      }
+    }
   }
 }

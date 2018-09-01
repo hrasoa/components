@@ -11,5 +11,6 @@ packages/accordion/flow-typed
 [options]
 module.file_ext=.js
 module.file_ext=.scss
+module.name_mapper='^@hrasoa\/components\-utils$' -> '<PROJECT_ROOT>/packages/utils/src/index.js'
 
 [strict]
