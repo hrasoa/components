@@ -36,12 +36,12 @@ class AccordionPanel extends Component<Props> {
     return this.props.isExpanded !== nextProps.isExpanded;
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps: Props) {
     if (this.props.disableInnert) return;
 
     if (this.props.isExpanded && this.handleInnert) {
       this.handleInnert.disengage();
-    } else if (this.ref.current) {
+    } else if (typeof prevProps.isExpanded !== 'undefined' && this.ref.current) {
       this.handleInnert = disabled({
         context: this.ref.current,
       });

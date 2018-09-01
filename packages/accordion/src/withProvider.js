@@ -12,11 +12,13 @@ function withProvider(
 ): (ComponentType<PropsOutput>) => ComponentType<PropsInput> {
   return (WrappedComponent) => {
     function WithProvider(ownProps: {
+      disableInnert: boolean,
       allowMultiple: boolean,
       allowToggle: boolean,
       onChange: Function
     }) {
       const {
+        disableInnert,
         allowMultiple,
         allowToggle,
         onChange,
@@ -24,6 +26,7 @@ function withProvider(
       } = ownProps;
       return (
         <Provider
+          disableInnert={disableInnert}
           allowMultiple={allowMultiple}
           allowToggle={allowToggle}
           onChange={onChange}
