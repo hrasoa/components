@@ -10,7 +10,7 @@ storiesOf('Accordion', module)
   .add('Minimal', () => <Accordion />)
   .add('Allow toggle', () => <Accordion allowToggle />)
   .add('Allow multiple', () => <Accordion allowMultiple />)
-  .add('onChange callback', () => <Accordion onChange={action('onChange')} />)
+  .add('onChange callback', () => <Accordion onChange={action('onChange(prevState, state, panels)')} />)
   .add('Nested', () => (
     <Accordion
       renderPanel={i => (
