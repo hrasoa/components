@@ -5,6 +5,7 @@
 [libs]
 flow-typed
 packages/accordion/flow-typed
+packages/utils/flow-typed
 
 [lints]
 
