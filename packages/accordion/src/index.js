@@ -39,4 +39,5 @@ export {
   AccordionHeader,
   AccordionPanel,
   withAccordionConsumer,
+  withAccordionProvider,
 };
