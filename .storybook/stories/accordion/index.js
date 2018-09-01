@@ -8,9 +8,10 @@ import Accordion from './Accordion';
 storiesOf('Accordion', module)
   .addDecorator(checkA11y)
   .add('Minimal', () => <Accordion />)
+  .add('Second panel opened by default', () => <Accordion expandedIds={['panel-1']} />)
+  .add('onChange callback', () => <Accordion onChange={action('onChange(prevState, state, panels)')} />)
   .add('Allow toggle', () => <Accordion allowToggle />)
   .add('Allow multiple', () => <Accordion allowMultiple />)
-  .add('onChange callback', () => <Accordion onChange={action('onChange(prevState, state, panels)')} />)
   .add('Nested', () => (
     <Accordion
       renderPanel={i => (
