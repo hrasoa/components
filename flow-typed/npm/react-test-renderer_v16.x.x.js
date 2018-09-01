@@ -1,5 +1,5 @@
-// flow-typed signature: 2d946f2ec4aba5210b19d053c411a59d
-// flow-typed version: 95b3e05165/react-test-renderer_v16.x.x/flow_>=v0.47.x
+// flow-typed signature: 2c70223ccadf23513c28ebff4469aaa0
+// flow-typed version: 8cdcc6637e/react-test-renderer_v16.x.x/flow_>=v0.47.x
 
 // Type definitions for react-test-renderer 16.x.x
 // Ported from: https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react-test-renderer
@@ -41,22 +41,33 @@ type ReactTestInstance = {
   ): ReactTestInstance[]
 };
 
-type ReactTestRenderer = {
-  toJSON(): null | ReactTestRendererJSON,
-  toTree(): null | ReactTestRendererTree,
-  unmount(nextElement?: React$Element<any>): void,
-  update(nextElement: React$Element<any>): void,
-  getInstance(): null | ReactTestInstance,
-  root: ReactTestInstance
-};
-
 type TestRendererOptions = {
   createNodeMock(element: React$Element<any>): any
 };
 
 declare module "react-test-renderer" {
+  declare export type ReactTestRenderer = {
+    toJSON(): null | ReactTestRendererJSON,
+    toTree(): null | ReactTestRendererTree,
+    unmount(nextElement?: React$Element<any>): void,
+    update(nextElement: React$Element<any>): void,
+    getInstance(): null | ReactTestInstance,
+    root: ReactTestInstance
+  };
+
   declare function create(
     nextElement: React$Element<any>,
     options?: TestRendererOptions
   ): ReactTestRenderer;
+}
+
+declare module "react-test-renderer/shallow" {
+  declare export default class ShallowRenderer {
+    static createRenderer(): ShallowRenderer;
+    getMountedInstance(): ReactTestInstance;
+    getRenderOutput<E: React$Element<any>>(): E;
+    getRenderOutput(): React$Element<any>;
+    render(element: React$Element<any>, context?: any): void;
+    unmount(): void;
+  }
 }

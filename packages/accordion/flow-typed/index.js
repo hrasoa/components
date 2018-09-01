@@ -1,5 +1,3 @@
-declare type HTMLRef<E> = { current: null | E };
-
 declare type PanelRef = HTMLRef<HTMLElement>;
 
 declare type ProviderValue = {

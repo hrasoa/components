@@ -3,7 +3,6 @@ import React from 'react';
 import type { Node } from 'react';
 import {
   Accordion,
-  AccordionProvider,
   AccordionHeader,
   AccordionPanel,
 } from '../../../packages/accordion/src';
@@ -13,7 +12,7 @@ type Props = {
   renderHeader?: (i: number, id: string) => string | Node,
   renderPanel?: (i: number, id: string) => string | Node,
   className?: string,
-  allowTogle?: boolean,
+  allowToggle?: boolean,
   allowMultiple?: boolean,
   expandedIds?: Array<string>,
   id?: string,
@@ -51,20 +50,17 @@ const AccordionMinimal = ({
   className,
   ...props
 }: Props) => (
-  <AccordionProvider
+  <Accordion
+    className={className}
     {...props}
   >
-    <Accordion
-      className={className}
-    >
-      {getItems(id, expandedIds, renderHeader, renderPanel)}
-    </Accordion>
-  </AccordionProvider>
+    {getItems(id, expandedIds, renderHeader, renderPanel)}
+  </Accordion>
 );
 
 AccordionMinimal.defaultProps = {
   allowMultiple: false,
-  allowTogle: false,
+  allowToggle: false,
   className: 'accordion',
   expandedIds: null,
   id: 'minimal',

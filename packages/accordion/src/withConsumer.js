@@ -25,7 +25,7 @@ function withConsumer(
       );
     }
 
-    WithConsumer.displayName = `withAccordion(${getDisplayName(WrappedComponent)})`;
+    WithConsumer.displayName = `withAccordionConsumer(${getDisplayName(WrappedComponent)})`;
     return WithConsumer;
   };
 }
