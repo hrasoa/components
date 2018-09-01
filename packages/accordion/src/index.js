@@ -9,12 +9,12 @@ import withProvider from './withProvider';
 const withAccordionConsumer = withConsumer.bind(null, Consumer);
 const withAccordionProvider = withProvider.bind(null, AccordionProvider);
 
-const Accordion = withAccordionProvider()(withAccordionConsumer(
-  ({ handleKeyNavigation, isTouched }) => ({
+const Accordion = withAccordionProvider()(
+  withAccordionConsumer(({ handleKeyNavigation, isTouched }) => ({
     handleKeyNavigation,
     isTouched,
-  }),
-)(BaseAccordion));
+  }))(BaseAccordion),
+);
 
 const AccordionHeader = withAccordionConsumer(
   (providerValue, { controls }: { controls: string }) => ({
