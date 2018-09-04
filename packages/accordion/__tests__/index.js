@@ -2,7 +2,6 @@
 import * as React from 'react';
 import {
   Accordion,
-  AccordionProvider,
   AccordionHeader,
   AccordionPanel,
 } from '../src';
@@ -43,11 +42,9 @@ const getItems = (expandedIds, renderHeader) => {
 };
 
 const AccordionTest = ({ expandedIds, renderHeader, ...props }: Props) => (
-  <AccordionProvider {...props}>
-    <Accordion>
-      {getItems(expandedIds, renderHeader)}
-    </Accordion>
-  </AccordionProvider>
+  <Accordion {...props}>
+    {getItems(expandedIds, renderHeader)}
+  </Accordion>
 );
 
 AccordionTest.defaultProps = {

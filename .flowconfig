@@ -12,6 +12,6 @@ packages/utils/flow-typed
 [options]
 module.file_ext=.js
 module.file_ext=.scss
-module.name_mapper='^@hrasoa\/components\-utils$' -> '<PROJECT_ROOT>/packages/utils/src/index.js'
+module.name_mapper='^@hrasoa\/components\-\(.*\)$' -> '<PROJECT_ROOT>/packages/\1/src/index.js'
 
 [strict]

@@ -15,4 +15,7 @@ module.exports = {
   transform: {
     '\\.js$': resolve('transformer.js'),
   },
+  moduleNameMapper: {
+    '^@hrasoa\/components\-(.*)$': '<rootDir>/$1/src/index.js'
+  }
 };

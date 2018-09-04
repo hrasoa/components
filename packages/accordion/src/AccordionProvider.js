@@ -12,32 +12,15 @@ import {
 
 const { Provider, Consumer } = React.createContext();
 
-type Panels = {
-  [panelId: string]: {
-    ref: PanelRef,
-    isInitiallyExpanded: boolean,
-  }
-};
-
-type State = {
-  allowMultiple: boolean,
-  expandedId: ?string,
-  expandedStates: { [panelId: string]: boolean },
-  focusedId: ?string,
-  isTouched: boolean,
-  panelIds: Array<string>,
-  panels: Panels,
-};
-
 type Props = {
   allowMultiple?: boolean,
   allowToggle?: boolean,
   children: Node,
   disableInnert?: boolean,
-  onChange?: ($Shape<State>, $Shape<State>, Panels) => void,
+  onChange?: ($Shape<ProviderState>, $Shape<ProviderState>, Panels) => void,
 };
 
-class AccordionProvider extends Component<Props, State> {
+class AccordionProvider extends Component<Props, ProviderState> {
   constructor(props: Props) {
     super(props);
     this.state = {
@@ -51,7 +34,7 @@ class AccordionProvider extends Component<Props, State> {
     };
   }
 
-  componentDidUpdate(prevProps: Props, prevState: State) {
+  componentDidUpdate(prevProps: Props, prevState: ProviderState) {
     const {
       allowMultiple,
       expandedId,
@@ -75,14 +58,13 @@ class AccordionProvider extends Component<Props, State> {
   get providerValue(): $Exact<ProviderValue> {
     return {
       addPanel: this.addPanel,
-      closeAll: this.closeAll,
       disableInnert: !!this.props.disableInnert,
       handleKeyNavigation: this.handleKeyNavigation,
       isDisabled: this.isDisabled,
       isExpanded: this.isExpanded,
       isFocused: this.isFocused,
       isTouched: this.state.isTouched,
-      openAll: this.openAll,
+      setState: (state: ProviderState) => { this.setState(state); },
       togglePanel: this.togglePanel,
     };
   }
@@ -138,22 +120,6 @@ class AccordionProvider extends Component<Props, State> {
       focusedId: panelId,
       isTouched: true,
     }));
-  }
-
-  toggleAllPanels(open: boolean): void {
-    this.setState(prevState => ({
-      expandedStates: Object.keys(prevState.expandedStates)
-        .reduce((acc, panelId) => ({ ...acc, [panelId]: open }), {}),
-      isTouched: true,
-    }));
-  }
-
-  openAll = (): void => {
-    this.toggleAllPanels(true);
-  }
-
-  closeAll = (): void => {
-    this.toggleAllPanels(false);
   }
 
   handleKeyNavigation = (e: SyntheticKeyboardEventElement<HTMLElement>): void => {

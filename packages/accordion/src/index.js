@@ -35,7 +35,6 @@ const AccordionPanel = withAccordionConsumer(
 
 export {
   Accordion,
-  AccordionProvider,
   AccordionHeader,
   AccordionPanel,
   withAccordionConsumer,
